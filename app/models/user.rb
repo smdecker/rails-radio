@@ -2,6 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :episodes
+  has_many :comments
   
   has_many :favorite_episodes
   has_many :favorites, through: :favorite_episodes, source: :episode

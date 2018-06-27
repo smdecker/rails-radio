@@ -6,3 +6,10 @@
 		<li><%= fav.title %></li>
 	<% end %>
 </ul>
+
+<p>comments:</p>
+<ul>
+	<% @user.comments.each do |c| %>
+		<li><%= c.content %> on <%= c.episode.title %></li>
+	<% end %>
+</ul>

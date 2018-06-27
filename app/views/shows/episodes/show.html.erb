@@ -1,8 +1,10 @@
 <h3><%= @episode.title %></h3>
 
-<% if current_user %>
-  <%= link_to "favorite", favorite_show_episode_path(@episode, type: "favorite"), method: :put %>
+<% if current_user.favorites.include?(@episode) %>
   <%= link_to "unfavorite", favorite_show_episode_path(@episode, type: "unfavorite"), method: :put %>
+  <% else %>
+  <%= link_to "favorite", favorite_show_episode_path(@episode, type: "favorite"), method: :put %>
+  
 <% end %>
 
 <ul>
@@ -11,3 +13,18 @@
 		<li><%= user.username %></li>
 	<% end %>
 </ul>
+
+<h3>Comments:</h3>
+<ul>
+  <% @episode.comments.each do |comment| %>
+  <li><%= link_to comment.user.username, user_path(comment.user.slug) %> says: <%= comment.content %></li>
+  <% end %>
+</ul>
+
+<p>Add a comment:</p>
+<%= form_for ([@show, @episode, Comment.new]) do |f| %>
+  <%= f.hidden_field :episode_id, value: @episode.id %>
+
+  <%= f.text_area :content %><br>
+  <%= f.submit %>
+<% end %>
