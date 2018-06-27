@@ -1,10 +1,10 @@
-<h3><%= @episode.title %></h3>
+<h3><%= @episode.title %> </h3>
+<p>see all from: <%= link_to @episode.show.title, show_path(@episode.show.slug) %></p>
 
 <% if current_user.favorites.include?(@episode) %>
   <%= link_to "unfavorite", favorite_show_episode_path(@episode, type: "unfavorite"), method: :put %>
   <% else %>
   <%= link_to "favorite", favorite_show_episode_path(@episode, type: "favorite"), method: :put %>
-  
 <% end %>
 
 <ul>

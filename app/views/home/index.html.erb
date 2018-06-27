@@ -18,3 +18,8 @@
 		<% end %>
 	</ul>
 </nav>
+
+<p><b>recently aired:</b></p>
+<% @episodes.each do |episode| %>
+	<li><%= episode.title %></li>
+<% end %>
