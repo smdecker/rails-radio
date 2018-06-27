@@ -1,0 +1,6 @@
+<h1>make new episode</h1>
+
+<%= form_for [@show, @episode] do |f| %>
+	<%= f.text_field :title %>
+	<%= f.submit %>
+<% end %>
