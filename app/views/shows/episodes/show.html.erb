@@ -1,2 +1,13 @@
 <h3><%= @episode.title %></h3>
 
+<% if current_user %>
+  <%= link_to "favorite", favorite_show_episode_path(@episode, type: "favorite"), method: :put %>
+  <%= link_to "unfavorite", favorite_show_episode_path(@episode, type: "unfavorite"), method: :put %>
+<% end %>
+
+<ul>
+	<p>Favorited by:</p>
+	<% @episode.favorited_by.each do |user| %>
+		<li><%= user.username %></li>
+	<% end %>
+</ul>

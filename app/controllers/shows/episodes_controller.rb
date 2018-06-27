@@ -25,6 +25,23 @@ class Shows::EpisodesController < ApplicationController
 		end
 	end
 
+  def favorite
+  	@episode = Episode.friendly.find(params[:id])
+    type = params[:type]
+    if type == "favorite"
+      current_user.favorites << @episode
+      redirect_to show_url(@episode.show_id)
+
+    elsif type == "unfavorite"
+      current_user.favorites.delete(@episode)
+      redirect_to show_url(@episode.show_id)
+
+    else
+      # Type missing, nothing happens
+      redirect_to show_url(@episode.show_id)
+    end
+  end
+
 	private
 
 	def set_show

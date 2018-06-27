@@ -1,6 +1,14 @@
 <h1>make new episode</h1>
 
 <%= form_for [@show, @episode] do |f| %>
-	<%= f.text_field :title %>
+	<%= f.label :title %>
+	<%= f.text_field :title %><br>
+
+	<%= f.label :description %>
+	<%= f.text_field :description %><br>
+	
+	<%= f.label :air_date %>
+	<%= f.date_field :air_date %><br>
+
 	<%= f.submit %>
 <% end %>
