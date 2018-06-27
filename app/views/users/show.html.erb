@@ -1,1 +1,8 @@
 <h1>This is <%= @user.username %> (<%= @user.email %>) user page</h1>
+
+<p><%= @user.username %> favorite episodes:</p>
+<ul>
+	<% @user.favorites.each do |fav| %>
+		<li><%= fav.title %></li>
+	<% end %>
+</ul>

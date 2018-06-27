@@ -2,9 +2,9 @@
 <% if current_user.try(:admin?) %>
 		<p>Welcome ADMIN <%=current_user.username%></p>
 <% else %>
-		<% if user_signed_in? %>
+	<% if user_signed_in? %>
 		<p>Welcome <%=current_user.username%></p>
-		<% end %>
+	<% end %>
 <% end %>
 
 <nav>
