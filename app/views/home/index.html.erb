@@ -19,7 +19,20 @@
 	</ul>
 </nav>
 
+<p><b>Rails Radio recommends:</b></p>
+	<% @admin.each do |admin| %>
+		<% admin.favorites.each do |fav| %>
+			<div><%= fav.title %></div>
+		<% end %>
+	<% end %>
+
 <p><b>recently aired:</b></p>
-<% @episodes.each do |episode| %>
+<% @episodes.order(created_at: :desc).each do |episode| %>
 	<li><%= episode.title %></li>
 <% end %>
+
+<% Episode.sorted_by_most_popular.each do |e| %>
+  <div><%= e.title %></div>
+<% end %>
+
+

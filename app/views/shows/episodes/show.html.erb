@@ -1,4 +1,5 @@
 <h3><%= @episode.title %> </h3>
+<h4><%= @episode.description %> </h4>
 <p>see all from: <%= link_to @episode.show.title, show_path(@episode.show.slug) %></p>
 
 <% if current_user.favorites.include?(@episode) %>
