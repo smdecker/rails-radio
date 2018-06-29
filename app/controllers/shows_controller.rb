@@ -8,7 +8,6 @@ class ShowsController < ApplicationController
 	end
 
 	def show
-		@show = Show.friendly.find(params[:id])
 	end
 
 	def new
@@ -33,6 +32,11 @@ class ShowsController < ApplicationController
 		else
 			render :edit
 		end
+	end
+
+	def destroy
+		@show.delete
+		redirect_to show_path, flash: {notice: "'#{@show.title}' deleted"}
 	end
 
 	private

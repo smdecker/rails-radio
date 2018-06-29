@@ -1,5 +1,6 @@
 class Shows::EpisodesController < ApplicationController
-	before_action :set_show, only: [:index, :show, :new, :create]
+	before_action :set_show
+	before_action :set_episode, only: [:show, :edit, :update, :destroy]
 
 	def index
 		@episodes = Episode.all	
@@ -7,7 +8,6 @@ class Shows::EpisodesController < ApplicationController
 
 	def show
 		@user = current_user
-		@episode = Episode.friendly.find(params[:id])
 	end
 
 	def new
@@ -23,6 +23,22 @@ class Shows::EpisodesController < ApplicationController
 		else 
 			render :new
 		end
+	end
+
+	def edit
+	end
+
+	def update
+		if @episode.update(episode_params)
+			redirect_to show_episode_path(@show, @episode), flash: {notice: "'#{@episode.title}' updated"}
+		else
+			render :edit
+		end
+	end
+
+	def destroy
+		@episode.delete
+		redirect_to show_episode_path, flash: {notice: "'#{@episode.title}' deleted"}
 	end
 
   def favorite
@@ -43,6 +59,10 @@ class Shows::EpisodesController < ApplicationController
   end
 
 	private
+
+	def set_episode
+		@episode = Episode.friendly.find(params[:id])
+	end
 
 	def set_show
 		@show = Show.friendly.find(params[:show_id])

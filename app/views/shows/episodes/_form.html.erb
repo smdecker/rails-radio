@@ -1,0 +1,12 @@
+<%= form_for [@show, @episode] do |f| %>
+	<%= f.label :title %>
+	<%= f.text_field :title %><br>
+
+	<%= f.label :description %>
+	<%= f.text_area :description %><br>
+	
+	<%= f.label :air_date %>
+	<%= f.date_field :air_date %><br>
+
+	<%= f.submit %>
+<% end %>

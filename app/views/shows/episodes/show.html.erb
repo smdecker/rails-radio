@@ -1,4 +1,4 @@
-<h3><%= @episode.title %> </h3>
+<h3><%= @episode.title %> </h3> <p><%= @episode.air_date %></p>
 <h4><%= @episode.description %> </h4>
 <p>see all from: <%= link_to @episode.show.title, show_path(@episode.show.slug) %></p>
 
@@ -30,3 +30,7 @@
   <% end %>
 </ul>
 
+<br>
+<% if current_user.try(:admin?) %>
+  <%= link_to "Edit Episode", edit_show_episode_path(@show, @episode) %>
+<% end %>

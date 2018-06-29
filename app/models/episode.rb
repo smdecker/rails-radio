@@ -10,6 +10,10 @@ class Episode < ApplicationRecord
 	extend FriendlyId
   friendly_id :title, use: :slugged
 
+	def should_generate_new_friendly_id?
+	 title_changed?
+	end
+
 	def most_popular
 		self.favorited_by.each_with_index {|u, i| @total = i +=1} 
 		@total.to_i
