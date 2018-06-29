@@ -2,18 +2,25 @@
 
 <p><%= @show.description %></p>
 
-<% @show.episodes.each do |episode| %>
-	<%= link_to episode.title, show_episode_path(@show.slug, episode.slug) %>
-<% end %>
-
 <% if @show.twitter.present? %>
 	<%= link_to(@show.twitter) do %>
 		<%= image_tag 'Twitter_Logo_Blue.svg', style: 'height:30px; width:auto;' %>
 	<% end %>
 <% end %>
 
-<% if @show.facebook.present? %>
-	<%= link_to(@show.twitter) do %>
-		<%= image_tag 'Twitter_Logo_Blue.svg', style: 'height:30px; width:auto;' %>
+<% if @show.soundcloud.present? %>
+	<%= link_to(@show.soundcloud, style: 'text-decoration:none;') do %>
+		<%= image_tag 'soundcloud_logo-01.svg', style: 'height:10px; width:auto; text-decoration:none;' %>
 	<% end %>
+<% end %>
+<br>
+
+<% @show.episodes.each do |episode| %>
+	<%= link_to episode.title, show_episode_path(@show.slug, episode.slug) %>
+<% end %>
+
+
+<br>
+<% if current_user.try(:admin?) %>
+	<%= link_to "Edit Show", edit_show_path(@show) %>
 <% end %>

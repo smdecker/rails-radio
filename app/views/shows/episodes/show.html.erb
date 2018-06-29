@@ -15,6 +15,14 @@
 	<% end %>
 </ul>
 
+<p>Add a comment:</p>
+<%= form_for ([@show, @episode, Comment.new]) do |f| %>
+  <%= f.hidden_field :episode_id, value: @episode.id %>
+
+  <%= f.text_area :content, rows: "4", cols: "50" %><br>
+  <%= f.submit %>
+<% end %>
+
 <h3>Comments:</h3>
 <ul>
   <% @episode.comments.each do |comment| %>
@@ -22,10 +30,3 @@
   <% end %>
 </ul>
 
-<p>Add a comment:</p>
-<%= form_for ([@show, @episode, Comment.new]) do |f| %>
-  <%= f.hidden_field :episode_id, value: @episode.id %>
-
-  <%= f.text_area :content %><br>
-  <%= f.submit %>
-<% end %>

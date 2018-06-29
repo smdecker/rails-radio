@@ -1,24 +1,2 @@
-<%= form_for @show do |f| %>
-	<%= f.label :title %>
-	<%= f.text_field :title %><br>
-	
-	<%= f.label :description %>
-	<%= f.text_area :description %><br>
-
-	<%= f.label :location %>
-	<%= f.text_field :location %><br>
-
-	<%= f.label :link %>
-	<%= f.text_field :link %><br>
-
-	<%= f.label :twitter %>
-	<%= f.text_field :twitter %><br>
-
-	<%= f.label :facebook %>
-	<%= f.text_field :facebook %><br>
-
-	<%= f.label :soundcloud %>
-	<%= f.text_field :soundcloud %><br>					
-
-	<%= f.submit %>
-<% end %>
+<h3>create new show</h3>
+<%= render 'form' %>
