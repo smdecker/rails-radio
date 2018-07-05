@@ -31,8 +31,10 @@
 	<li><%= episode.title %></li>
 <% end %>
 
+<p><b>popular episodes:</b></p>
 <% Episode.sorted_by_most_popular.each do |e| %>
-  <div><%= e.title %></div>
+  <div><%= link_to e.title, show_episode_path(e.show, e) %></div>
 <% end %>
+
 
 

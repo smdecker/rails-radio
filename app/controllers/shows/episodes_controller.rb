@@ -1,5 +1,5 @@
 class Shows::EpisodesController < ApplicationController
-	before_action :set_show
+	before_action :set_show, only: [:show, :edit, :update, :destroy]
 	before_action :set_episode, only: [:show, :edit, :update, :destroy]
 
 	def index
@@ -38,7 +38,7 @@ class Shows::EpisodesController < ApplicationController
 
 	def destroy
 		@episode.delete
-		redirect_to show_episode_path, flash: {notice: "'#{@episode.title}' deleted"}
+		redirect_to show_path(@show), flash: {notice: "'#{@episode.title}' deleted"}
 	end
 
   def favorite
@@ -69,6 +69,6 @@ class Shows::EpisodesController < ApplicationController
 	end
 
 	def episode_params
-		params.require(:episode).permit(:title, :description, :air_date, :slug)
+		params.require(:episode).permit(:title, :description, :air_date, :slug, :avatar)
 	end
 end

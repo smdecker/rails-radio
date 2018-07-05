@@ -2,6 +2,8 @@
 
 <p><%= @show.description %></p>
 
+<%= image_tag @show.avatar.url(:medium) %> <br>
+
 <% if @show.twitter.present? %>
 	<%= link_to(@show.twitter) do %>
 		<%= image_tag 'Twitter_Logo_Blue.svg', style: 'height:30px; width:auto;' %>
@@ -16,11 +18,12 @@
 <br>
 
 <% @show.episodes.each do |episode| %>
-	<%= link_to episode.title, show_episode_path(@show.slug, episode.slug) %>
+	<%= link_to episode.title, show_episode_path(@show, episode) %>
 <% end %>
 
 
 <br>
 <% if current_user.try(:admin?) %>
 	<%= link_to "Edit Show", edit_show_path(@show) %>
+	<%= link_to "Delete Show", show_episode_path(@show), method: :delete %>
 <% end %>

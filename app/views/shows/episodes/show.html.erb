@@ -1,6 +1,9 @@
 <h3><%= @episode.title %> </h3> <p><%= @episode.air_date %></p>
 <h4><%= @episode.description %> </h4>
-<p>see all from: <%= link_to @episode.show.title, show_path(@episode.show.slug) %></p>
+
+<%= image_tag @episode.avatar.url(:medium) %> <br>
+
+<p>see all from: <%= link_to @episode.show.title, show_path(@episode.show) %></p>
 
 <% if current_user.favorites.include?(@episode) %>
   <%= link_to "unfavorite", favorite_show_episode_path(@episode, type: "unfavorite"), method: :put %>
@@ -26,11 +29,12 @@
 <h3>Comments:</h3>
 <ul>
   <% @episode.comments.each do |comment| %>
-  <li><%= link_to comment.user.username, user_path(comment.user.slug) %> says: <%= comment.content %></li>
+  <li><%= link_to comment.user.username, user_path(comment.user) %> says: <%= comment.content %></li>
   <% end %>
 </ul>
 
 <br>
 <% if current_user.try(:admin?) %>
   <%= link_to "Edit Episode", edit_show_episode_path(@show, @episode) %>
+  <%= link_to "Delete Episode", show_episode_path(@show, @episode), method: :delete %>
 <% end %>

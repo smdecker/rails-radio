@@ -36,7 +36,7 @@ class ShowsController < ApplicationController
 
 	def destroy
 		@show.delete
-		redirect_to show_path, flash: {notice: "'#{@show.title}' deleted"}
+		redirect_to show_path(@show), flash: {notice: "'#{@show.title}' deleted"}
 	end
 
 	private
@@ -50,6 +50,6 @@ class ShowsController < ApplicationController
 	end
 
 	def show_params
-		params.require(:show).permit(:title, :description, :location, :link, :twitter, :facebook, :soundcloud, :slug)
+		params.require(:show).permit(:title, :description, :location, :link, :twitter, :facebook, :soundcloud, :slug, :avatar)
 	end
 end
