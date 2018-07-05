@@ -22,18 +22,18 @@
 <p><b>Rails Radio recommends:</b></p>
 	<% @admin.each do |admin| %>
 		<% admin.favorites.each do |fav| %>
-			<div><%= fav.title %></div>
+			<div><%= link_to fav.title, show_episode_path(fav.show, fav) %></div>
 		<% end %>
 	<% end %>
 
 <p><b>recently aired:</b></p>
 <% @episodes.order(created_at: :desc).each do |episode| %>
-	<li><%= episode.title %></li>
+	<li><%= link_to episode.title, show_episode_path(episode.show, episode) %></li>
 <% end %>
 
 <p><b>popular episodes:</b></p>
-<% Episode.sorted_by_most_popular.each do |e| %>
-  <div><%= link_to e.title, show_episode_path(e.show, e) %></div>
+<% Episode.sorted_by_most_popular.each do |episode| %>
+  <div><%= link_to episode.title, show_episode_path(episode.show, episode) %></div>
 <% end %>
 
 

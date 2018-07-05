@@ -1,15 +1,15 @@
 <h1>This is <%= @user.username %> (<%= @user.email %>) user page</h1>
 
-<p><%= @user.username %> favorite episodes:</p>
+<p>favorite episodes:</p>
 <ul>
 	<% @user.favorites.each do |fav| %>
-		<li><%= fav.title %></li>
+		<li><%= link_to fav.title, show_episode_path(fav.show, fav) %></li>
 	<% end %>
 </ul>
 
 <p>comments:</p>
 <ul>
-	<% @user.comments.each do |c| %>
-		<li><%= c.content %> on <%= c.episode.title %></li>
+	<% @user.comments.each do |comment| %>
+		<li><%= comment.content %> on <%= link_to comment.episode.title, show_episode_path(comment.episode.show, comment.episode) %></li>
 	<% end %>
 </ul>
