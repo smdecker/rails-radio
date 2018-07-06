@@ -36,7 +36,7 @@ class ShowsController < ApplicationController
 
 	def destroy
 		@show.delete
-		redirect_to show_path(@show), flash: {notice: "'#{@show.title}' deleted"}
+		redirect_to shows_path, flash: {notice: "'#{@show.title}' deleted"}
 	end
 
 	private

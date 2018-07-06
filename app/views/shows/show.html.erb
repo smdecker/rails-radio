@@ -1,6 +1,6 @@
 <% if current_user.try(:admin?) %>
 	<%= link_to "Edit Show", edit_show_path(@show) %>
-	<%= link_to "Delete Show", show_episode_path(@show), method: :delete %>
+	<%= link_to "Delete Show", @show, method: :delete %>
 	<%= link_to "Add new Episode", new_show_episode_path(@show) %>
 <% end %>
 
