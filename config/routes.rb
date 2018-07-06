@@ -9,5 +9,7 @@ Rails.application.routes.draw do
 		end	
 	end
 
+	get '/archive' => 'shows/episodes#index'
+
   root 'home#index'
 end
