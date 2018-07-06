@@ -53,7 +53,6 @@ class Shows::EpisodesController < ApplicationController
       redirect_to show_url(@episode.show_id)
 
     else
-      # Type missing, nothing happens
       redirect_to show_url(@episode.show_id)
     end
   end

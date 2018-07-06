@@ -1,3 +1,7 @@
+<nav>
+  <%= render 'shared/nav' %>
+</nav>
+
 <% if current_user.try(:admin?) %>
   <%= link_to "Edit Episode", edit_show_episode_path(@show, @episode) %>
   <%= link_to "Delete Episode", show_episode_path(@show, @episode), method: :delete %>

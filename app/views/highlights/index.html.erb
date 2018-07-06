@@ -1,0 +1,10 @@
+<nav>
+	<%= render 'shared/nav' %>
+</nav>
+
+<p><b>Rails Radio recommends:</b></p>
+	<% @admin.each do |admin| %>
+		<% admin.favorites.each do |fav| %>
+			<div><%= link_to fav.title, show_episode_path(fav.show, fav) %></div>
+		<% end %>
+	<% end %>
