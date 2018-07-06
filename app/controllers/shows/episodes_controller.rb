@@ -1,10 +1,6 @@
 class Shows::EpisodesController < ApplicationController
-	before_action :set_show, only: [:show, :edit, :update, :destroy]
+	before_action :set_show
 	before_action :set_episode, only: [:show, :edit, :update, :destroy]
-
-	def index
-		@episodes = Episode.all	
-	end
 
 	def show
 		@user = current_user

@@ -1,3 +1,7 @@
+<% if current_user.try(:admin?) %>
+	<%= link_to "Add new Show", new_show_path %>
+<% end %>
+
 <ul>
 	<% @shows.each do |show| %>
 		<li><%= link_to show.title, show_path(show) %></li>
