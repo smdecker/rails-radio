@@ -1,27 +1,37 @@
-<%= render 'shared/header' %>
+<div class="wide-header">
+	<div class="section">
+		<%= render 'shared/header' %>
 
-<nav>
-	<%= render 'shared/nav' %>
-</nav>
-
-<div class="section">
-	<p><b>Rails Radio recommends</b></p>
-	<% @admin.each do |admin| %>
-		<% admin.favorites.each do |fav| %>
-			<div><%= link_to fav.title, show_episode_path(fav.show, fav) %></div>
-		<% end %>
-	<% end %>
+		<%= render 'shared/nav' %>
+	</div>
 </div>
 
-<p><b>recently aired:</b></p>
-<% @episodes.order(created_at: :desc).each do |episode| %>
-	<li><%= link_to episode.title, show_episode_path(episode.show, episode) %></li>
-<% end %>
+<div class="wide">
+	<div class="section">
+		<p>Rails Radio recommends</p>
+		<% @admin.each do |admin| %>
+			<% admin.favorites.each do |fav| %>
+				<div><%= link_to fav.title, show_episode_path(fav.show, fav) %></div>
+			<% end %>
+		<% end %>
+	</div>
+</div>
 
-<p><b>popular episodes:</b></p>
-<% Episode.sorted_by_most_popular.each do |episode| %>
-  <div><%= link_to episode.title, show_episode_path(episode.show, episode) %></div>
-<% end %>
+<div class="wide">
+	<div class="section">
+		<p>recently aired</p>
+		<% @episodes.order(created_at: :desc).each do |episode| %>
+			<li><%= link_to episode.title, show_episode_path(episode.show, episode) %></li>
+		<% end %>
+	</div>
+</div>
 
-
+<div class="wide">
+	<div class="section">
+		<p>popular episodes</p>
+		<% Episode.sorted_by_most_popular.each do |episode| %>
+		  <div><%= link_to episode.title, show_episode_path(episode.show, episode) %></div>
+		<% end %>
+	</div>
+</div>
 

@@ -19,14 +19,39 @@ html {
 	font-family: sans-serif;
 }
 
+nav {
+
+}
+
 body {
 	margin: 0 auto;
 	background-color: #f0f0f0;
 }
 
-.main {
+.wide {
+	width: 100%;
+	border-top: 1px solid #ccc;
+}
+
+.wide-header {
+	width: 100%;
+
+}
+
+.section {
 	margin: 0 auto;
 	max-width: 975px;
+	padding-bottom: 1.4em
+}
+
+.section p {
+	font-size: 10pt;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.main {
+	margin: 0 auto;
 }
 
 .radio{
@@ -36,6 +61,6 @@ body {
 
 .radio-header {
 /*	background-color: #000;*/
-	margin-top: 20px;
+	padding-top: 20px;
 	height: 80px;
 }

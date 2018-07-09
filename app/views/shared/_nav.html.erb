@@ -1,16 +1,16 @@
-<%= link_to "Shows", shows_path %>
-<%= link_to "Archive", archive_path %>
-<%= link_to "Highlights", highlights_path %>
+<nav>
+	<%= link_to "Shows", shows_path %>
+	<%= link_to "Archive", archive_path %>
+	<%= link_to "Highlights", highlights_path %>
 
-<div style="float:right">
-<% if user_signed_in? %>
-	<b><%=current_user.username%></b>
-	<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "button" %>
-<% else %>
-	<%= link_to "Login", new_user_session_path, class: "button" %>
-	<%= link_to "Register", new_user_registration_path, class: "button" %>
-	<%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
-<% end %>
-</div>
-
-<br><br>
+	<div style="float:right">
+	<% if user_signed_in? %>
+		<b><%=current_user.username%></b>
+		<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "button" %>
+	<% else %>
+		<%= link_to "Login", new_user_session_path, class: "button" %>
+		<%= link_to "Register", new_user_registration_path, class: "button" %>
+		<%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
+	<% end %>
+	</div>
+</nav>
