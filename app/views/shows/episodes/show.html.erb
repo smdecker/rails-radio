@@ -1,3 +1,5 @@
+<%= render 'shared/header' %>
+
 <nav>
   <%= render 'shared/nav' %>
 </nav>
@@ -10,7 +12,7 @@
 <h3><%= @episode.title %> </h3> <p><%= @episode.air_date %></p>
 <h4><%= @episode.description %> </h4>
 
-<%= image_tag @episode.avatar.url(:medium) %> <br>
+<%= image_tag @episode.avatar.url(:thumb) %> <br>
 
 <p>see all from: <%= link_to @episode.show.title, show_path(@episode.show) %></p>
 
