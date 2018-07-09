@@ -1,0 +1,25 @@
+<% if @no_results %>
+	<h3>sorry no results found</h3>
+
+<% else %>
+	 
+	<% @shows.each do |show| %>
+		<% if show.title.present? %>
+			Shows:
+			<%= show.title %>
+	  <% end %>
+	<% end %>
+	<br>
+
+	Episodes:
+	<% @episodes.each do |episode| %>
+	  <%= episode.title %>
+	<% end %>
+	<br>
+
+	Users:
+	<% @users.each do |user| %>
+	  <%= user.name %>
+	<% end %>
+ 	
+<% end %>

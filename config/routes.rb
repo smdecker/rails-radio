@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
 	get '/archive' => 'shows/episodes#index'
 	get '/highlights' => 'highlights#index'
+	get 'search' => 'search#index'
 
   root 'home#index'
 end

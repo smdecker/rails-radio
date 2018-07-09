@@ -30,7 +30,7 @@ body {
 
 .wide {
 	width: 100%;
-	border-top: 1px solid #ccc;
+
 }
 
 .wide-header {
@@ -41,6 +41,7 @@ body {
 .section {
 	margin: 0 auto;
 	max-width: 975px;
+	border-top: 1px solid #ccc;
 	padding-bottom: 1.4em
 }
 
@@ -63,4 +64,36 @@ body {
 /*	background-color: #000;*/
 	padding-top: 20px;
 	height: 80px;
+}
+
+.form-control {
+	border: none;
+	height: 20px;
+	width: 150px;
+}
+
+.form-control:focus {
+	outline: none;
+}
+
+.search-button {
+	border: none;
+	position: absolute;
+	padding-bottom: 0px;
+	background-color: transparent;
+}
+
+i.material-icons {
+	font-size: 20px;
+}
+
+i.material-icons:hover {
+	cursor: pointer;
+}
+
+.search-bar {
+	width: 185px;
+	height: 22px;
+	border: 1px solid blue;
+	margin-top: -8px;
 }
