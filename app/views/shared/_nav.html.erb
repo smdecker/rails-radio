@@ -6,7 +6,7 @@
 	<div style="float:right">
 		<%= form_tag search_path, method: :get do %>
 			<div class='search-bar'>
-				<%= text_field_tag :q, nil, class: 'form-control'%>
+				<%= text_field_tag :q, nil, class: 'form-control', :required => 'required'%>
 				<%= button_tag(type: "submit", class: 'search-button') do %>
 					<i class="material-icons">search</i>
 				<% end %>

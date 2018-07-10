@@ -20,7 +20,16 @@ html {
 }
 
 nav {
+	padding-left: 1em;
+  padding-right: 1em;
+  padding-top: .5em;
+}
 
+nav a {
+  font-size: 10pt;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 body {
@@ -35,14 +44,26 @@ body {
 
 .wide-header {
 	width: 100%;
-
+  margin-bottom: 4em;
 }
 
 .section {
 	margin: 0 auto;
-	max-width: 975px;
-	border-top: 1px solid #ccc;
+	max-width: 940px;
+	border-bottom: 1px solid #ccc;
 	padding-bottom: 1.4em
+}
+
+.section-nav {
+	margin: 0 auto;
+	width: 100%;
+	padding-bottom: 0.5em;
+	border-bottom: 1px solid #ccc;
+}
+
+.section-header {
+	width: 100%;
+	margin: 0 auto;
 }
 
 .section p {
@@ -55,20 +76,42 @@ body {
 	margin: 0 auto;
 }
 
+.login {
+	float:right;
+	position: relative;
+  top: 45%;
+  transform: translateY(-50%);
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline;
+  font-size: 10pt;
+	font-weight: bold;
+}
+
 .radio{
-	max-height: 50px;
+	max-height: 40px;
 	vertical-align: middle;
 }
 
 .radio-header {
-/*	background-color: #000;*/
-	padding-top: 20px;
-	height: 80px;
+	background-color: #f0f0f0;
+	padding-top: 6px;
+	height: 45px;
+	border-bottom: 1px solid #ccc;
+	padding-left: 1em;
+  padding-right: 1em;
 }
 
 .form-control {
 	border: none;
-	height: 20px;
+	height: 18px;
 	width: 150px;
 }
 
@@ -84,7 +127,7 @@ body {
 }
 
 i.material-icons {
-	font-size: 20px;
+	font-size: 18px;
 }
 
 i.material-icons:hover {
@@ -92,8 +135,9 @@ i.material-icons:hover {
 }
 
 .search-bar {
-	width: 185px;
-	height: 22px;
-	border: 1px solid blue;
-	margin-top: -8px;
+	width: 180px;
+	height: 20px;
+	border: 1px solid #ccc;
+	background-color: white;
+	margin-top: -2px;
 }

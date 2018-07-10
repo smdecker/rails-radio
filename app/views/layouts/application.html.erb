@@ -11,9 +11,19 @@
   </head>
 
   <body>
+    <div class="wide-header">
+      <div class="section-header">
+        <%= render 'shared/header' %>
+      </div>
+      <div class="section-nav">
+        <%= render 'shared/nav' %>
+      </div>
+    </div>
+
     <div class="main">
       <%= render "shared/alerts" %>
       <%= yield %>
     </div>
+
   </body>
 </html>

@@ -1,8 +1,3 @@
-<%= render 'shared/header' %>
-
-<nav>
-	<%= render 'shared/nav' %>
-</nav>
 
 <% if current_user.try(:admin?) %>
 	<%= link_to "Edit Show", edit_show_path(@show) %>
