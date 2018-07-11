@@ -1,7 +1,7 @@
 class Show < ApplicationRecord
 	has_many :episodes
 
-	has_attached_file :avatar, styles: { medium: "300x300#", thumb: "100x100#" }, default_url: "/assets/:style/missing.png"
+	has_attached_file :avatar, styles: { medium: "300x225#", thumb: "172x120#" }, default_url: "/assets/:style/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
 	extend FriendlyId

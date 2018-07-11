@@ -5,6 +5,8 @@ class ShowsController < ApplicationController
 
 	def index
 		@shows = Show.all
+				@episodes = Episode.all
+		@admin = User.where(admin: true)
 	end
 
 	def show

@@ -161,7 +161,7 @@ i.material-icons:hover {
 .episode-title{
 	font-size: 10.5pt;
 	font-weight: normal;
-	text-transform: uppercase;
+	/*text-transform: uppercase;*/
 	margin-bottom: 0;
 	margin-top: 0.5em;
 	color: #000;
@@ -213,4 +213,30 @@ div.section-recent > ul > a:nth-child(5n) > li {
 
 div.section-popular > ul > a:nth-child(5n) > li {
 	margin: 0 0 4% 0;
+}
+
+/*//////////// admin panel ///////////////*/
+#new-show {
+	background-color: #61a4ff;
+	float: right;
+	margin-top: 0.5em;
+	margin-right: 3px;
+}
+
+#new-show a {
+	font-size: 8pt;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #000;
+	text-decoration: none;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.page-title {
+	font-size: 10.5pt;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #000;
+	display: inline-block;
 }

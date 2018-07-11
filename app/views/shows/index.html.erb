@@ -1,9 +1,20 @@
-<% if current_user.try(:admin?) %>
-	<%= link_to "Add new Show", new_show_path %>
-<% end %>
+<div class="section-recommends">
+	<p class="page-title">Shows</p>
 
-<ul>
-	<% @shows.each do |show| %>
-		<li><%= link_to show.title, show_path(show) %></li>
+	<% if current_user.try(:admin?) %>
+		<div id="new-show">
+			<%= link_to "Add new Show", new_show_path %>
+		</div>
 	<% end %>
-</ul>
+
+	<ul>
+		<% @shows.each do |show| %>
+			<%= link_to show_path(show) do %>
+				<li class="fav-show-card">
+					<%= image_tag show.avatar.url(:medium) %>
+					<p class="episode-title"><%= show.title %></p>
+				</li>
+			<% end %>
+		<% end %>
+	</ul>
+</div>
