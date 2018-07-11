@@ -1,12 +1,12 @@
 <div class="section-recommends">
-	<p>Rails Radio recommends</p>
+	<p class="section-title">Rails Radio recommends</p>
 	<ul>
 		<% @admin.each do |admin| %>
 			<% admin.favorites.each do |fav| %>
 				<%= link_to show_episode_path(fav.show, fav) do %>
 					<li class="fav-show-card">
 						<%= image_tag fav.avatar.url(:medium) %>
-						<p><%= fav.title %></p>
+						<p class="episode-title"><%= fav.title %></p>
 					</li>
 				<% end %>
 			<% end %>
@@ -14,16 +14,30 @@
 	</ul>
 </div>
 
-<div class="section" style="clear:both">
-	<p>recently aired</p>
-	<% @episodes.order(created_at: :desc).each do |episode| %>
-		<li><%= link_to episode.title, show_episode_path(episode.show, episode) %></li>
-	<% end %>
+<div class="section-recent">
+	<p class="section-title">recently aired</p>
+	<ul>
+		<% @episodes.order(created_at: :desc).each do |episode| %>
+			<%= link_to show_episode_path(episode.show, episode) do %>
+				<li class="thumb-show-card">
+					<%= image_tag episode.avatar.url(:thumb) %>
+					<p class="episode-title"><%= episode.title %></p>
+				</li>
+			<% end %>
+		<% end %>
+	</ul>
 </div>
 
-<div class="section">
-	<p>popular episodes</p>
-	<% Episode.sorted_by_most_popular.each do |episode| %>
-	  <div><%= link_to episode.title, show_episode_path(episode.show, episode) %></div>
-	<% end %>
+<div class="section-popular">
+	<p class="section-title">popular episodes</p>
+	<ul>
+		<% Episode.sorted_by_most_popular.each do |episode| %>
+	  	<%= link_to show_episode_path(episode.show, episode) do %>
+		  	<li class="thumb-show-card">
+		  		<%= image_tag episode.avatar.url(:thumb) %>
+		  		<p class="episode-title"><%= episode.title %></p>
+		  	</li>
+		  <% end %>
+		<% end %>
+	</ul>
 </div>

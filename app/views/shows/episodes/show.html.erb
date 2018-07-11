@@ -3,7 +3,7 @@
   <%= link_to "Delete Episode", show_episode_path(@show, @episode), method: :delete %>
 <% end %><br>
 
-<h3><%= @episode.title %> </h3> <p><%= @episode.air_date %></p>
+<h3><%= @episode.title %> </h3> <p><%= @episode.air_date%></p>
 <h4><%= @episode.description %> </h4>
 
 <%= image_tag @episode.avatar.url(:thumb) %> <br>

@@ -1,5 +1,5 @@
 class Shows::EpisodesController < ApplicationController
-	before_action :set_show, except: [:index]
+	before_action :set_show, except: [:index, :favorite]
 	before_action :set_episode, only: [:show, :edit, :update, :destroy]
 
 	def index

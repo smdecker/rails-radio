@@ -31,7 +31,7 @@ nav {
 }
 
 nav a {
-  font-size: 9.5pt;
+  font-size: 10.5pt;
   text-transform: uppercase;
   font-weight: bold;
   text-decoration: none;
@@ -65,21 +65,7 @@ nav a {
 }
 
 .section p {
-	font-size: 9.5pt;
-	font-weight: bold;
-	text-transform: uppercase;
-}
-
-.section-recommends {
-	position: relative;
-	margin: 0 auto;
-	max-width: 940px;
-	border-bottom: 1px solid #ccc;
-	float:left;
-}
-
-.section-recommends p {
-	font-size: 9.5pt;
+	font-size: 10.5pt;
 	font-weight: bold;
 	text-transform: uppercase;
 }
@@ -156,13 +142,75 @@ i.material-icons:hover {
 }
 
 /*//////////// rails radio recommends ///////////////*/
-li.fav-show-card {
+.section-recommends {
+	position: relative;
+	margin: 0 auto;
+	max-width: 940px;
+	border-bottom: 1px solid #ccc;
+	float:left;
+	margin-top: 0.5em;
+}
+
+.section-title{
+	font-size: 10.5pt;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #000;
+}
+
+.episode-title{
+	font-size: 10.5pt;
+	font-weight: normal;
+	text-transform: uppercase;
+	margin-bottom: 0;
+	margin-top: 0.5em;
+	color: #000;
+}
+
+.fav-show-card {
   float: left;
   position: relative;
   padding-left: 0;
-  margin: 0 2% 2% 0;
+  margin: 0 2% 4% 0;
 }
 
-div.section-recommends > ul > a:nth-child(3) > li {
-	margin: 0 0 2% 0;
+div.section-recommends > ul > a:nth-child(3n) > li {
+	margin: 0 0 4% 0;
+}
+
+/*//////////// recently aired ///////////////*/
+.section-recent {
+	position: relative;
+	margin: 0 auto;
+	max-width: 940px;
+	float:left;
+	margin-top: 1em;
+	border-bottom: 1px solid #ccc;
+	clear: both;
+}
+
+.thumb-show-card {
+  float: left;
+  position: relative;
+  padding-left: 0;
+  margin: 0 2% 4% 0;
+}
+
+div.section-recent > ul > a:nth-child(5n) > li {
+	margin: 0 0 4% 0;
+}
+
+/*//////////// popular ///////////////*/
+.section-popular {
+	position: relative;
+	margin: 0 auto;
+	max-width: 940px;
+
+	margin-top: 1em;
+	float:left;
+	clear: both;
+}
+
+div.section-popular > ul > a:nth-child(5n) > li {
+	margin: 0 0 4% 0;
 }

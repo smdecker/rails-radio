@@ -7,11 +7,15 @@ class Episode < ApplicationRecord
 	has_many :favorite_episodes
 	has_many :favorited_by, through: :favorite_episodes, source: :user
 
-	has_attached_file :avatar, styles: { medium: "300x225#", thumb: "100x100#" }, default_url: "/assets/:style/missing.png"
+	has_attached_file :avatar, styles: { medium: "300x225#", thumb: "172x120#" }, default_url: "/assets/:style/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
 	extend FriendlyId
-  friendly_id :title, use: :slugged
+  friendly_id :uniqueslug, use: :slugged
+
+  def uniqueslug
+    "#{title}-#{air_date}"
+  end
 
 	def should_generate_new_friendly_id?
 	 title_changed?
