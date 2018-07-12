@@ -240,3 +240,50 @@ div.section-popular > ul > a:nth-child(5n) > li {
 	color: #000;
 	display: inline-block;
 }
+
+.show-img {
+  position: relative;
+  float: left;
+  width: 30%;
+  display: table;
+  margin-right: 15px;
+}
+
+.show-about {
+  float: right;
+  width: 67%;
+  height: 225px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  display: table-cell;
+}
+
+#show-about-bottom {
+	position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.show-admin {
+  float: right;
+}
+
+.socials {
+	display: inline;
+}
+
+.socials a {
+	position: absolute;
+}
+
+#show-profile {
+  margin-bottom: 8%;
+  width: 100%;
+  display: inline-flex;
+  margin-top: 2em;
+}

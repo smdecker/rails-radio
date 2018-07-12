@@ -1,32 +1,40 @@
+<div id="show-profile">
+	<div class="show-img"><%= image_tag @show.avatar.url(:medium) %></div>
 
-<% if current_user.try(:admin?) %>
-	<%= link_to "Edit Show", edit_show_path(@show) %>
-	<%= link_to "Delete Show", @show, method: :delete %>
-	<%= link_to "Add new Episode", new_show_episode_path(@show) %>
-<% end %>
+	<div class="show-about">
+		<p>Show page for <%= @show.title %></p>
+		<p><%= @show.description %></p>
 
-<h3>Show page for <%= @show.title %></h3>
+		<div id="show-about-bottom">
+			<div class="socials">
+				<% if @show.twitter.present? %>
+					<%= link_to(@show.twitter) do %>
+						<%= image_tag 'Twitter_Logo_Blue.svg', style: 'height:25px; width:auto;' %>
+					<% end %>
+				<% end %>
 
-<p><%= @show.description %></p>
+				<% if @show.soundcloud.present? %>
+					<%= link_to(@show.soundcloud, style: 'text-decoration:none;') do %>
+						<%= image_tag 'soundcloud_logo-01.svg', style: 'height:10px; width:auto; text-decoration:none;' %>
+					<% end %>
+				<% end %>
+			</div>
 
-<%= image_tag @show.avatar.url(:medium) %> <br>
+			<div class="show-admin">
+				<% if current_user.try(:admin?) %>
+					<%= link_to "Edit Show", edit_show_path(@show) %>
+					<%= link_to "Delete Show", @show, method: :delete %>
+					<%= link_to "Add new Episode", new_show_episode_path(@show) %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
 
-<% if @show.twitter.present? %>
-	<%= link_to(@show.twitter) do %>
-		<%= image_tag 'Twitter_Logo_Blue.svg', style: 'height:30px; width:auto;' %>
+<div style="clear:both">
+	<% @show.episodes.each do |episode| %>
+		<%= link_to episode.title, show_episode_path(@show, episode) %>
 	<% end %>
-<% end %>
-
-<% if @show.soundcloud.present? %>
-	<%= link_to(@show.soundcloud, style: 'text-decoration:none;') do %>
-		<%= image_tag 'soundcloud_logo-01.svg', style: 'height:10px; width:auto; text-decoration:none;' %>
-	<% end %>
-<% end %>
-<br>
-
-<% @show.episodes.each do |episode| %>
-	<%= link_to episode.title, show_episode_path(@show, episode) %>
-<% end %>
-
+</div>
 
 <br>
