@@ -2,7 +2,7 @@
 	<p class="page-title">Shows</p>
 
 	<% if current_user.try(:admin?) %>
-		<div id="new-show">
+		<div id="add" class="admin-action">
 			<%= link_to "Add new Show", new_show_path %>
 		</div>
 	<% end %>

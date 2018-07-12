@@ -1,15 +1,15 @@
 <div id="show-profile">
-	<div class="show-img"><%= image_tag @show.avatar.url(:medium) %></div>
+	<div class="show-img"><%= image_tag @show.avatar.url(:large) %></div>
 
 	<div class="show-about">
-		<p>Show page for <%= @show.title %></p>
-		<p><%= @show.description %></p>
+		<p class="section-title">Show page for <%= @show.title %></p>
+		<p class="section-description"><%= @show.description %></p>
 
 		<div id="show-about-bottom">
 			<div class="socials">
 				<% if @show.twitter.present? %>
 					<%= link_to(@show.twitter) do %>
-						<%= image_tag 'Twitter_Logo_Blue.svg', style: 'height:25px; width:auto;' %>
+						<%= image_tag 'twitter.svg', style: 'height:17px; width:auto;' %>
 					<% end %>
 				<% end %>
 
@@ -21,20 +21,27 @@
 			</div>
 
 			<div class="show-admin">
-				<% if current_user.try(:admin?) %>
-					<%= link_to "Edit Show", edit_show_path(@show) %>
-					<%= link_to "Delete Show", @show, method: :delete %>
-					<%= link_to "Add new Episode", new_show_episode_path(@show) %>
+				<% if current_user.try(:admin?) %>	
+					<div id="delete" class="admin-action"><%= link_to "Delete Show", @show, method: :delete %></div>
+					<div id="edit" class="admin-action"><%= link_to "Edit Show", edit_show_path(@show) %></div>
+					<div id="add" class="admin-action"><%= link_to "Add new Episode", new_show_episode_path(@show) %></div>
 				<% end %>
 			</div>
 		</div>
 	</div>
 </div>
 
-<div style="clear:both">
-	<% @show.episodes.each do |episode| %>
-		<%= link_to episode.title, show_episode_path(@show, episode) %>
-	<% end %>
+<div class="section-recommends" >
+	<ul>
+		<% @show.episodes.each do |episode| %>
+			<%= link_to show_episode_path(@show, episode) do %>
+				<li class="fav-show-card">
+					<%= image_tag episode.avatar.url(:medium) %>
+					<p class="episode-title"><%= episode.title %></p>
+				</li>
+			<% end %>
+		<% end %>
+	</ul>
 </div>
 
 <br>

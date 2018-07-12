@@ -158,6 +158,11 @@ i.material-icons:hover {
 	color: #000;
 }
 
+.section-description {
+	font-size: 10.5pt;
+	font-weight: normal;
+}
+
 .episode-title{
 	font-size: 10.5pt;
 	font-weight: normal;
@@ -216,14 +221,25 @@ div.section-popular > ul > a:nth-child(5n) > li {
 }
 
 /*//////////// admin panel ///////////////*/
-#new-show {
-	background-color: #61a4ff;
+.admin-action {
 	float: right;
 	margin-top: 0.5em;
 	margin-right: 3px;
 }
 
-#new-show a {
+#add.admin-action {
+	background-color: #61a4ff;
+}
+
+#edit.admin-action {
+	background-color: #ffe45d;
+}
+
+#delete.admin-action {
+	background-color: #ff7575;
+}
+
+.admin-action a {
 	font-size: 8pt;
 	text-transform: uppercase;
 	font-weight: bold;
@@ -252,7 +268,7 @@ div.section-popular > ul > a:nth-child(5n) > li {
 .show-about {
   float: right;
   width: 67%;
-  height: 225px;
+  height: 300px;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
   position: relative;
@@ -279,6 +295,7 @@ div.section-popular > ul > a:nth-child(5n) > li {
 
 .socials a {
 	position: absolute;
+	bottom: -7px;
 }
 
 #show-profile {
@@ -286,4 +303,16 @@ div.section-popular > ul > a:nth-child(5n) > li {
   width: 100%;
   display: inline-flex;
   margin-top: 2em;
+}
+
+.section-episodes {
+	position: relative;
+	margin: 0 auto;
+	max-width: 940px;
+	float:left;
+	margin-top: 0.5em;
+}
+
+div.section-episodes > ul > a:nth-child(3n) > li {
+	margin: 0 0 4% 0;
 }
