@@ -224,19 +224,7 @@ div.section-popular > ul > a:nth-child(5n) > li {
 .admin-action {
 	float: right;
 	margin-top: 0.5em;
-	margin-right: 3px;
-}
-
-#add.admin-action {
-	background-color: #61a4ff;
-}
-
-#edit.admin-action {
-	background-color: #ffe45d;
-}
-
-#delete.admin-action {
-	background-color: #ff7575;
+	margin-right: 10px;
 }
 
 .admin-action a {
@@ -245,8 +233,16 @@ div.section-popular > ul > a:nth-child(5n) > li {
 	font-weight: bold;
 	color: #000;
 	text-decoration: none;
-	padding-left: 5px;
-	padding-right: 5px;
+}
+
+.admin-action a:hover {
+	border-bottom: 1px solid #000
+}
+
+i.material-icons {
+	font-size: 14px;
+	vertical-align: middle;
+	padding-right: 2px;
 }
 
 .page-title {
@@ -282,7 +278,7 @@ div.section-popular > ul > a:nth-child(5n) > li {
 	position: absolute;
   bottom: 0;
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .show-admin {
@@ -290,12 +286,13 @@ div.section-popular > ul > a:nth-child(5n) > li {
 }
 
 .socials {
-	display: inline;
+	display: inline-block;
+	position: relative;
+	margin-bottom: 5px;
 }
 
 .socials a {
 	position: absolute;
-	bottom: -7px;
 }
 
 #show-profile {
