@@ -21,10 +21,16 @@
     <p style="font-size:9pt; text-transform:uppercase;">audio player goes here</p>
   </div>
 
+  <%=link_to show_path(@episode.show) do %>
+    <div class="see-all">
+      <p>see more</p>
+    </div>
+  <% end %>
+
   <% if current_user.favorites.include?(@episode) %>
     <%= link_to favorite_show_episode_path(@episode, type: "unfavorite"), method: :put do %>
       <div class="favorite-button">
-        <p>unfavorite</p>
+        <p>favorited</p>
       </div>
     <% end %>
 
@@ -34,12 +40,6 @@
         <p>favorite</p>
       </div>
     <% end %>
-  <% end %>
-
-  <%=link_to show_path(@episode.show) do %>
-    <div class="see-all">
-      <p>see all</p>
-    </div>
   <% end %>
 </div>
 

@@ -1,8 +1,6 @@
-<nav>
-	<%= render 'shared/nav' %>
-</nav>
-
 <h1>This is <%= @user.username %> (<%= @user.email %>) user page</h1>
+
+<%= image_tag @user.avatar.url(:thumb) %>
 
 <p>favorite episodes:</p>
 <ul>
