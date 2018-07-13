@@ -313,3 +313,67 @@ i.material-icons {
 div.section-episodes > ul > a:nth-child(3n) > li {
 	margin: 0 0 4% 0;
 }
+
+.episode-title-page {
+	font-size: 10.5pt;
+	font-weight: normal;
+	margin-bottom: 0;
+	color: #000;
+	display: inline-block;
+  position: relative;
+}
+
+.episode-date {
+	float:right;
+	text-transform: uppercase;
+	font-size: 9pt;
+	font-weight: bold;
+	padding-top: 3px;
+}
+
+.episode-description {
+	font-size: 10.5pt;
+	font-weight: normal;
+	margin-bottom: 4em;
+	max-width: 50%;
+}
+
+.player {
+	width: 77%;
+	height: 35px;
+	border: 1px solid #000;
+	display: inline-block;
+}
+
+.see-all, .favorite-button {
+	display: inline-block;
+  float: right;
+  height: 37px;
+  width: 10%;
+  margin-left: 5px;
+  text-align: center;
+  background-color: #000
+}
+
+.see-all, .favorite-button p {
+	font-size: 9pt;
+	text-transform: uppercase;
+	font-weight: normal;
+	color: #fff;
+}
+
+.favorited-by {
+	font-size: 9pt;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #000;
+	border-bottom: 1px solid;
+	width: 100%;
+}
+
+.episode-admin-action {
+  display: inline-block;
+  margin-bottom: -3px;
+  margin-left: 15px;	
+}
+

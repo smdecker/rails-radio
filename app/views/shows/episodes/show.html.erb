@@ -1,27 +1,57 @@
-<% if current_user.try(:admin?) %>
-  <%= link_to "Edit Episode", edit_show_episode_path(@show, @episode) %>
-  <%= link_to "Delete Episode", show_episode_path(@show, @episode), method: :delete %>
-<% end %><br>
 
-<h3><%= @episode.title %> </h3> <p><%= @episode.air_date%></p>
-<h4><%= @episode.description %> </h4>
+<p class="episode-date"><%= @episode.air_date.strftime("%b %d, %Y")%></p>
 
-<%= image_tag @episode.avatar.url(:thumb) %> <br>
+<p class="episode-title-page"><b><%= @episode.title %></b></p> 
+<div class="episode-admin-action">
+  <% if current_user.try(:admin?) %>
+    <div class="admin-action">
+      <span><i class="material-icons">mode_edit</i></span><%= link_to "Edit Episode", edit_show_episode_path(@show, @episode) %>
+    </div>
+    <div class="admin-action">
+      <span><i class="material-icons">remove_circle_outline</i></span><%= link_to "Delete Episode", show_episode_path(@show, @episode), method: :delete %>
+    </div>
+  <% end %>
+</div>
 
-<p>see all from: <%= link_to @episode.show.title, show_path(@episode.show) %></p>
 
-<% if current_user.favorites.include?(@episode) %>
-  <%= link_to "unfavorite", favorite_show_episode_path(@episode, type: "unfavorite"), method: :put %>
+<%= image_tag @episode.avatar.url(:xl) %> <br>
+
+<div>
+  <div class="player">
+    <p style="font-size:9pt; text-transform:uppercase;">audio player goes here</p>
+  </div>
+
+  <% if current_user.favorites.include?(@episode) %>
+    <%= link_to favorite_show_episode_path(@episode, type: "unfavorite"), method: :put do %>
+      <div class="favorite-button">
+        <p>unfavorite</p>
+      </div>
+    <% end %>
+
   <% else %>
-  <%= link_to "favorite", favorite_show_episode_path(@episode, type: "favorite"), method: :put %>
-<% end %>
+    <%= link_to favorite_show_episode_path(@episode, type: "favorite"), method: :put do %>
+      <div class="favorite-button">
+        <p>favorite</p>
+      </div>
+    <% end %>
+  <% end %>
 
-<ul>
-	<p>Favorited by:</p>
-	<% @episode.favorited_by.each do |user| %>
-		<li><%= link_to user.username, user_path(user) %></li>
-	<% end %>
-</ul>
+  <%=link_to show_path(@episode.show) do %>
+    <div class="see-all">
+      <p>see all</p>
+    </div>
+  <% end %>
+</div>
+
+<p class="episode-description"><%= @episode.description %> </p>
+
+
+<p class="favorited-by">favorited by</p>
+  <ul>
+  	<% @episode.favorited_by.each do |user| %>
+  		<li><%= link_to user.username, user_path(user) %></li>
+  	<% end %>
+  </ul>
 
 <p>Add a comment:</p>
 <%= form_for ([@show, @episode, Comment.new]) do |f| %>
