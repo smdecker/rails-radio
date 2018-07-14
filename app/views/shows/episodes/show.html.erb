@@ -27,15 +27,22 @@
     </div>
   <% end %>
 
-  <% if current_user.favorites.include?(@episode) %>
-    <%= link_to favorite_show_episode_path(@episode, type: "unfavorite"), method: :put do %>
-      <div class="favorite-button">
-        <p>favorited</p>
-      </div>
+  <% if user_signed_in? %>
+    <% if current_user.favorites.include?(@episode) %>
+      <%= link_to favorite_show_episode_path(@episode, type: "unfavorite"), method: :put do %>
+        <div class="favorite-button">
+          <p>favorited</p>
+        </div>
+      <% end %>
+    <% else %>
+      <%= link_to favorite_show_episode_path(@episode, type: "favorite"), method: :put do %>
+        <div class="favorite-button">
+          <p>favorite</p>
+        </div>
+      <% end %>
     <% end %>
-
   <% else %>
-    <%= link_to favorite_show_episode_path(@episode, type: "favorite"), method: :put do %>
+    <%= link_to new_user_session_path do %>
       <div class="favorite-button">
         <p>favorite</p>
       </div>
@@ -46,26 +53,38 @@
 <p class="episode-description"><%= @episode.description %> </p>
 
 
-<p class="favorited-by">favorited by</p>
+<p class="episode-functions">favorited by</p>
   <ul>
   	<% @episode.favorited_by.each do |user| %>
-  		<li><%= link_to user.username, user_path(user) %></li>
+      <%= link_to user_path(user) do%>
+        <li class="user-avatar">
+          <%= image_tag user.avatar.url(:thumb) %>
+        </li>
+  		<% end %>
   	<% end %>
   </ul>
 
-<p>Add a comment:</p>
-<%= form_for ([@show, @episode, Comment.new]) do |f| %>
-  <%= f.hidden_field :episode_id, value: @episode.id %>
+<p id="comment-section" class="episode-functions">comments</p>
 
-  <%= f.text_area :content, rows: "4", cols: "50" %><br>
-  <%= f.submit %>
+<% if user_signed_in? %>
+  <div class="comment-avatar">
+    <%= image_tag current_user.avatar.url(:thumb) %>
+  </div>
+    <%= form_for ([@show, @episode, Comment.new]) do |f| %>
+      <%= f.hidden_field :episode_id, value: @episode.id %>
+
+      <%= f.text_area :content, rows: "5", cols: "50", placeholder: "Add a comment..." %><br>
+      <div class="comment-submit"><%= f.submit %></div>
+    <% end %>
+<% else %>
+  <%= link_to "Login to add a comment", new_user_session_path %>
 <% end %>
 
-<h3>Comments:</h3>
+<br><br>
 <ul>
   <% @episode.comments.each do |comment| %>
   <li><%= link_to comment.user.username, user_path(comment.user) %> says: <%= comment.content %></li>
   <% end %>
 </ul>
 
-
+<div style="height:100px"></div>

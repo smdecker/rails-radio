@@ -24,6 +24,10 @@ body {
 	background-color: #f0f0f0;
 }
 
+a {
+	text-decoration: none;
+}
+
 nav {
 	padding-left: 1em;
   padding-right: 1em;
@@ -362,18 +366,51 @@ div.section-episodes > ul > a:nth-child(3n) > li {
 	color: #fff;
 }
 
-.favorited-by {
+.episode-functions {
 	font-size: 9pt;
 	text-transform: uppercase;
 	font-weight: bold;
 	color: #000;
-	border-bottom: 1px solid;
+	border-bottom: 1px solid #ccc;
 	width: 100%;
+}
+
+#comment-section.episode-functions {
+	margin-top: 4em
 }
 
 .episode-admin-action {
   display: inline-block;
   margin-bottom: -3px;
   margin-left: 15px;	
+}
+
+.username {
+	font-size: 8pt;
+	font-weight: normal;
+	color: #000;
+}
+
+.user-avatar {
+	margin-right: 10px;
+}
+
+.comment-avatar {
+	display: inline;
+}
+
+form#new_comment.new_comment {
+	clear: both;
+  display: inline;
+}
+
+textarea#comment_content:focus {
+	outline: none;
+}
+
+.comment-submit {
+	clear: both;
+	display: inline;
+	margin-left: 73px;
 }
 
