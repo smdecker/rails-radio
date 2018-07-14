@@ -82,8 +82,27 @@
 
 <br><br>
 <ul>
-  <% @episode.comments.each do |comment| %>
-  <li><%= link_to comment.user.username, user_path(comment.user) %> says: <%= comment.content %></li>
+  <% @episode.comments.order(created_at: :desc).each do |comment| %>
+  <li class="comment-section">
+    <div style="display:inline">
+    <%= link_to user_path(comment.user) do %>
+      <%= image_tag comment.user.avatar.url(:thumb) %>
+    <% end %>
+    </div>
+    <div class="comment-wrap">
+      <div class="comment-user-row">
+        <span class="comment-username">
+          <%= link_to comment.user.username, user_path(comment.user) %>
+        </span> 
+        <span class="comment-date">
+          <%= comment.created_at.strftime("%b %d, %Y") %>
+        </span>
+      </div><br>
+      <div class="comment-content">
+        <%= comment.content %>
+      </div>
+    </div>
+  </li>
   <% end %>
 </ul>
 

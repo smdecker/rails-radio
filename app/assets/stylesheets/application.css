@@ -414,3 +414,45 @@ textarea#comment_content:focus {
 	margin-left: 73px;
 }
 
+.comment-user-row {
+	display: inline
+}
+
+.comment-content {
+	display: inline
+}
+
+.comment-wrap {
+	display: inline-block;
+  position: absolute;
+  margin-left: 8px;
+}
+
+.comment-user-row {
+	top: 0;
+	position: relative;
+}
+
+.comment-content {
+	margin-top: 10px;
+  position: absolute;
+  font-size: 10.5pt;
+  font-weight: normal;
+}
+
+.comment-date {
+	font-size: 8.5pt;
+  font-weight: normal;
+  margin-left: 5px;
+}
+
+.comment-username a{
+	color: #000;
+}
+
+.comment-section {
+	border-top: 1px solid #ccc;
+  display: block;
+  padding-top: 7px;
+  margin-top: 10px;
+}
