@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 	resources :shows do
 		resources :episodes, controller: 'shows/episodes' do
 			put :favorite, on: :member
-				resources :comments, only: [:create]
+				resources :comments
 		end	
 	end
 
