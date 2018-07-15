@@ -1,6 +1,8 @@
+<p class="edit-comment">edit comment:</p>
+
 <%= form_for ([@show, @episode, @comment]) do |f| %>
   <%= f.hidden_field :episode_id, value: @episode.id %>
 
   <%= f.text_area :content, rows: "5", cols: "50" %><br>
-  <div class="comment-submit"><%= f.submit %></div>
+  <div><%= f.submit %></div>
 <% end %>

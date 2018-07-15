@@ -213,8 +213,7 @@ div.section-recent > ul > a:nth-child(5n) > li {
 .section-popular {
 	position: relative;
 	margin: 0 auto;
-	max-width: 940px;
-
+	width: 940px;
 	margin-top: 1em;
 	float:left;
 	clear: both;
@@ -379,6 +378,13 @@ div.section-episodes > ul > a:nth-child(3n) > li {
 	margin-top: 4em
 }
 
+#user-comment-section.episode-functions {
+	margin-top: 4em;
+	border-bottom: none;
+	margin-bottom: 5px;
+	font-size: 10.5pt;
+}
+
 .episode-admin-action {
   display: inline-block;
   margin-bottom: -3px;
@@ -456,11 +462,12 @@ textarea#comment_content:focus {
   display: block;
   padding-top: 7px;
   margin-top: 10px;
+  min-height: 73px;
 }
 
 .comment-action {
   float: right;
-  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .comment-action a {
@@ -474,3 +481,50 @@ textarea#comment_content:focus {
 .comment-action a:hover {
 	border-bottom: 1px solid #000
 }
+
+.edit-comment {
+	font-size: 9pt;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #000;
+}
+
+.user-comment-wrap {
+	display: inline-block;
+  position: absolute;
+}
+
+.user-comments {
+	border-top: 1px solid #ccc;
+  display: block;
+  padding-top: 7px;
+  min-height: 83px;
+}
+
+.user-profile {
+  display: inline;
+  position: absolute;
+}
+
+.user-profile-name {
+	display: inline;
+	margin-left: 10px;
+	top: 0;
+	position: relative;
+}
+
+.edit-user {
+  margin-left: 10px;
+  font-size: 8pt;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.edit-user a{
+	color: #000;
+}
+
+.edit-user a:hover{
+	border-bottom: 1px solid #000;
+}
+
