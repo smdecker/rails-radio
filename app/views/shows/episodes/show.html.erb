@@ -102,8 +102,14 @@
         <%= comment.content %>
       </div>
       <% if user_signed_in? && current_user.id == comment.user_id %>
-        <div class="admin-action"><span><i class="material-icons">remove_circle_outline</i></span><%= link_to "Delete comment", show_episode_comment_path(@show, @episode, comment), method: :delete, data: { confirm: 'Are you sure?' } %></div>
-        <div class="admin-action"><span><i class="material-icons">mode_edit</i></span><%= link_to "Edit comment", edit_show_episode_comment_path(@show, @episode, comment) %></div>
+        <div class="admin-action">
+          <span><i class="material-icons">remove_circle_outline</i></span>
+          <%= link_to "Delete comment", show_episode_comment_path(@show, @episode, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+        <div class="admin-action">
+          <span><i class="material-icons">mode_edit</i></span>
+          <%= link_to "Edit comment", edit_show_episode_comment_path(@show, @episode, comment) %>
+        </div>
       <% end %>
     </div>
   </li>
