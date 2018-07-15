@@ -5,8 +5,11 @@ class CommentsController < ApplicationController
 	def create
 		@comment = current_user.comments.build(comment_params)
 
-    @comment.save
-    redirect_to request.referrer
+    if @comment && @comment.save
+    	redirect_to request.referrer
+    else
+    	redirect_to request.referrer, flash: {notice: "Cannot submit blank comment"}
+    end
 	end
 
 	def edit

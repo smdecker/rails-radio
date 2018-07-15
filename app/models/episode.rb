@@ -10,6 +10,8 @@ class Episode < ApplicationRecord
 	has_attached_file :avatar, styles: { xl: "940x600#", medium: "300x225#", thumb: "172x120#" }, default_url: "/assets/:style/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
+  validates_presence_of :title, :description, :air_date
+
 	extend FriendlyId
   friendly_id :uniqueslug, use: :slugged
 
