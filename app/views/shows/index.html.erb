@@ -3,7 +3,7 @@
 
 	<% if current_user.try(:admin?) %>
 		<div id="add" class="admin-action">
-			<%= link_to "Add new Show", new_show_path %>
+			<span><i class="material-icons">add_circle_outline</i></span><%= link_to "Add new Show", new_show_path %>
 		</div>
 	<% end %>
 

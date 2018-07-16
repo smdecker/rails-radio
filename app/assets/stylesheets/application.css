@@ -274,6 +274,12 @@ div.section-popular > ul > a:nth-child(5n) > li {
 }
 
 /*//////////// admin panel ///////////////*/
+#add.admin-action {
+	float: right;
+	margin-top: 0.8em;
+	margin-right: 10px;
+}
+
 .admin-action {
 	float: right;
 	margin-top: 0.5em;
@@ -340,12 +346,11 @@ i.material-icons {
 
 .socials {
 	display: inline-block;
-	position: relative;
-	margin-bottom: 5px;
+	margin-top: 9px;
 }
 
 .socials a {
-	position: absolute;
+	margin-right: 5px;
 }
 
 #show-profile {
