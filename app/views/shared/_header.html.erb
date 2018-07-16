@@ -6,13 +6,16 @@
 	<div class="login" style="float:right">
 		<% if user_signed_in? %>
 			<ul>		
-				<li><%=current_user.username%></li>			
-				<li><%= link_to "log out", destroy_user_session_path, method: :delete, class: "button" %></li>
+				<li class="username-header">
+					<%= link_to current_user.username, user_path(current_user) %>
+				</li>			
+				<li class="log-out">
+					<%= link_to "log out", destroy_user_session_path, method: :delete, class: "button" %>
+				</li>
 			</ul>
 		<% else %>
-			<%= link_to "Login", new_user_session_path, class: "button" %>
-			<%= link_to "Register", new_user_registration_path, class: "button" %>
-			<%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
+			<%= link_to "Login", new_user_session_path, class: "login-register-button" %>
+			<%= link_to "Register", new_user_registration_path, class: "login-register-button" %>
 		<% end %>
 	</div>
 </div>
