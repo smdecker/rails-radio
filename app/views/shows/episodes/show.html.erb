@@ -8,7 +8,7 @@
       <span><i class="material-icons">mode_edit</i></span><%= link_to "Edit Episode", edit_show_episode_path(@show, @episode) %>
     </div>
     <div class="admin-action">
-      <span><i class="material-icons">remove_circle_outline</i></span><%= link_to "Delete Episode", show_episode_path(@show, @episode), method: :delete %>
+      <span><i class="material-icons">remove_circle_outline</i></span><%= link_to "Delete Episode", show_episode_path(@show, @episode), method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
   <% end %>
 </div>

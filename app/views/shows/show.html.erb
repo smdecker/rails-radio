@@ -22,7 +22,7 @@
 
 			<div class="show-admin">
 				<% if current_user.try(:admin?) %>	
-					<div class="admin-action"><span><i class="material-icons">remove_circle_outline</i></span><%= link_to "Delete Show", @show, method: :delete %></div>
+					<div class="admin-action"><span><i class="material-icons">remove_circle_outline</i></span><%= link_to "Delete Show", @show, method: :delete, data: { confirm: 'Are you sure?' } %></div>
 					<div class="admin-action"><span><i class="material-icons">mode_edit</i></span><%= link_to "Edit Show", edit_show_path(@show) %></div>
 					<div class="admin-action"><span><i class="material-icons">add_circle_outline</i></span><%= link_to "Add new Episode", new_show_episode_path(@show) %></div>
 				<% end %>
