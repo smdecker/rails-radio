@@ -1,6 +1,13 @@
-<h1>Archive</h1>
-<ul>
-	<% @episodes.each do |episode| %>
-		<li><%= link_to episode.title, show_episode_path(episode.show, episode) %></li>
-	<% end %>
-</ul>
+<div class="section-recent" style="border-bottom:none; margin-top: 0.5em">
+	<p class="page-title">archive</p>
+	<ul>
+		<% @episodes.order(created_at: :desc).each do |episode| %>
+			<%= link_to show_episode_path(episode.show, episode) do %>
+				<li class="thumb-show-card">
+					<%= image_tag episode.avatar.url(:thumb) %>
+					<p class="episode-title"><%= episode.title %></p>
+				</li>
+			<% end %>
+		<% end %>
+	</ul>
+</div>

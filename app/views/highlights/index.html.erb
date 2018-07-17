@@ -1,6 +1,15 @@
-<p><b>Rails Radio recommends:</b></p>
-	<% @admin.each do |admin| %>
-		<% admin.favorites.each do |fav| %>
-			<div><%= link_to fav.title, show_episode_path(fav.show, fav) %></div>
+<div class="section-recent" style="border-bottom:none; margin-top: 0.5em">
+	<p class="page-title">highlights</p>
+	<ul>
+		<% @admin.each do |admin| %>
+			<% admin.favorites.order(created_at: :desc).each do |episode| %>
+				<%= link_to show_episode_path(episode.show, episode) do %>
+					<li class="thumb-show-card">
+						<%= image_tag episode.avatar.url(:thumb) %>
+						<p class="episode-title"><%= episode.title %></p>
+					</li>
+				<% end %>
+			<% end %>
 		<% end %>
-	<% end %>
+	</ul>
+</div>

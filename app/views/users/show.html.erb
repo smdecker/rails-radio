@@ -6,12 +6,12 @@
 	</h2>
 	<% if user_signed_in? && current_user.id == @user.id %>
 		<p class="edit-user">
-			<span><i class="material-icons">mode_edit</i></span><%= link_to "edit profile", edit_user_registration_path %>
+			<span><i id="edit" class="material-icons">mode_edit</i></span><%= link_to "edit profile", edit_user_registration_path %>
 		</p>
 	<% end %>
 </div>
 
-<div class="section-popular">
+<div class="section-popular" style="margin-bottom:2em">
 	<p class="section-title">favorite episodes</p>
 	<ul>
 		<% @user.favorites.each do |episode| %>
@@ -25,34 +25,35 @@
 	</ul>
 </div>
 
-<p class="section-title" style="clear:both">comments</p>
-<ul style="clear:both">
-  <% @user.comments.order(created_at: :desc).each do |comment| %>
-    <li class="user-comments">
-      <div class="user-comment-wrap">
-        <div class="comment-user-row">
-          <span class="comment-username">
-            <%= link_to comment.episode.title, show_episode_path(comment.episode.show, comment.episode) %>
-          </span> 
-          <span class="comment-date">
-            <%= comment.created_at.strftime("%b %d, %Y") %>
-          </span>
-        </div><br>
-        <div class="comment-content">
-          <%= comment.content %>
+<div>
+  <p class="section-title" style="clear:both">comments</p>
+  <ul style="clear:both">
+    <% @user.comments.order(created_at: :desc).each do |comment| %>
+      <li class="user-comments">
+        <div class="user-comment-wrap">
+          <div class="comment-user-row">
+            <span class="comment-username">
+              <%= link_to comment.episode.title, show_episode_path(comment.episode.show, comment.episode) %>
+            </span> 
+            <span class="comment-date">
+              <%= comment.created_at.strftime("%b %d, %Y") %>
+            </span>
+          </div><br>
+          <div class="comment-content">
+            <%= comment.content %>
+          </div>
         </div>
-      </div>
-      
-      <% if user_signed_in? && current_user.id == comment.user_id %>
-        <div class="comment-action">
-          <span><i class="material-icons">remove_circle_outline</i></span><%= link_to "Delete comment", show_episode_comment_path(comment.episode.show, comment.episode, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
-        </div>
-        <div class="comment-action">
-          <span><i class="material-icons">mode_edit</i></span><%= link_to "Edit comment", edit_show_episode_comment_path(comment.episode.show, comment.episode, comment) %>
-        </div>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
-
+        
+        <% if user_signed_in? && current_user.id == comment.user_id %>
+          <div class="comment-action">
+            <span><i id="delete" class="material-icons">remove_circle_outline</i></span><%= link_to "Delete comment", show_episode_comment_path(comment.episode.show, comment.episode, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+          <div class="comment-action">
+            <span><i id="edit" class="material-icons">mode_edit</i></span><%= link_to "Edit comment", edit_show_episode_comment_path(comment.episode.show, comment.episode, comment) %>
+          </div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
 
