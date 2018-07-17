@@ -88,6 +88,15 @@ nav a {
 	font-size: 9pt;
 }
 
+.field-input {
+	display: block
+}
+
+.error-message {
+	display: block;
+	color: red;
+}
+
 .wide-header {
 	width: 100%;
   margin-bottom: 4em;

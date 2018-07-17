@@ -1,24 +1,26 @@
 <%= form_for [@show, @episode] do |f| %>
 
 	<div class="field">
-		<%= f.label :title %>
-		<%= f.text_field :title %><br>
+		<%= f.label :title, class: "username-password" %>
+		<%= f.text_field :title, class: "field-input" %>
 	</div>
 
 	<div class="field">
-		<%= f.label :description %>
-		<%= f.text_area :description %><br>
+		<%= f.label :description, class: "username-password"  %>
+		<%= f.text_area :description, rows: "5", cols: "50", class: "field-input"%>
 	</div>
 
 	<div class="field">
-		<%= f.label :air_date %>
-		<%= f.date_field :air_date %><br>
+		<%= f.label :air_date, class: "username-password"  %>
+		<%= f.date_field :air_date, class: "field-input" %>
 	</div>
 
 	<div class="field">
-		<%= f.label :avatar %>
-		<%= f.file_field :avatar %><br>
+		<%= f.label "episode image", class: "username-password" %>
+		<%= f.file_field :avatar, class: "field-input" %>
 	</div>
 	
-	<%= f.submit %>
+	<div class="actions" style="margin-top:10px;">
+		<%= f.submit %>
+	</div>
 <% end %>

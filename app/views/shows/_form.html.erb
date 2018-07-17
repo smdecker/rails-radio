@@ -1,27 +1,45 @@
 <%= form_for @show do |f| %>
-	<%= f.label :title %>
-	<%= f.text_field :title %><br>
-	
-	<%= f.label :description %>
-	<%= f.text_area :description %><br>
+<div class="field">
+		<%= f.label :title, class: "username-password" %>
+		<%= f.text_field :title, class: "field-input" %>
+	</div>
 
-	<%= f.label :location %>
-	<%= f.text_field :location %><br>
+	<div class="field">	
+		<%= f.label :description, class: "username-password" %>
+		<%= f.text_area :description, rows: "5", cols: "50", class: "field-input" %>
+	</div>
 
-	<%= f.label :avatar %>
-	<%= f.file_field :avatar %><br>
+	<div class="field">
+		<%= f.label :location, class: "username-password" %>
+		<%= f.text_field :location, class: "field-input" %>
+	</div>
 
-	<%= f.label :link %>
-	<%= f.text_field :link %><br>
+	<div class="field">
+		<%= f.label "show image", class: "username-password" %>
+		<%= f.file_field :avatar, class: "field-input" %>
+	</div>
 
-	<%= f.label :twitter %>
-	<%= f.text_field :twitter %><br>
+	<div class="field">
+		<%= f.label "external url", class: "username-password" %>
+		<%= f.text_field :link, class: "field-input" %>
+	</div>
 
-	<%= f.label :facebook %>
-	<%= f.text_field :facebook %><br>
+	<div class="field">
+		<%= f.label :twitter, class: "username-password" %>
+		<%= f.text_field :twitter, class: "field-input" %>
+	</div>
 
-	<%= f.label :soundcloud %>
-	<%= f.text_field :soundcloud %><br>					
+	<div class="field">
+		<%= f.label :facebook, class: "username-password" %>
+		<%= f.text_field :facebook, class: "field-input" %>
+	</div>
 
-	<%= f.submit %>
+	<div class="field">
+		<%= f.label :soundcloud, class: "username-password" %>
+		<%= f.text_field :soundcloud, class: "field-input" %>					
+	</div>
+
+	<div class="actions" style="margin-top:10px;">
+		<%= f.submit %>
+	</div>
 <% end %>

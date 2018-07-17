@@ -1,3 +1,12 @@
-<h1>make new episode</h1>
+<h2>Make new episode</h2>
+<% if @episode.errors.any? %>
+  <ul>
+    <% @episode.errors.full_messages.each do |message| %>
+      <li class="error-message">
+        - <%= message %>
+      </li>
+    <% end %>
+  </ul><br>
+<% end %>
 
 <%= render 'form' %>
