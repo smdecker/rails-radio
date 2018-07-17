@@ -235,6 +235,14 @@ i.material-icons:hover {
 	color: #000;
 }
 
+.avatar-name{
+	font-size: 9.5pt;
+	font-weight: normal;
+	/*text-transform: uppercase;*/
+	margin-top: 0;
+	color: #000;
+}
+
 .fav-show-card {
   float: left;
   position: relative;
