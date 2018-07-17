@@ -3,50 +3,62 @@
 <% else %>
 	<p class="section-title" style="border-bottom:1px solid #ccc; margin-bottom:4em;">search results</p>
 
-<p class="section-title" >shows:</p>
-	<div class="section-episodes">
-		<ul>
-			<% @shows.each do |show| %>
-				<% if show.title.present? %>
-					<%= link_to show_path(show) do %>
-						<li class="fav-show-card">
-							<%= image_tag show.avatar.url(:medium) %>
-							<p class="episode-title"><%= show.title %></p>
-						</li>
+	<div>
+		<p class="section-title" style="margin-bottom:0px;">shows:</p>
+		<div class="section-episodes">
+			<ul>
+				<% if !@shows.blank? %>
+					<% @shows.each do |show| %>
+						<%= link_to show_path(show) do %>
+							<li class="fav-show-card">
+								<%= image_tag show.avatar.url(:medium) %>
+								<p class="episode-title"><%= show.title %></p>
+							</li>
+						<% end %>
 					<% end %>
-			  <% end %>
-			<% end %>
-		</ul>
+				<% else %>
+					<p class="no-results" style="margin: 0px 0px 40px 0px;"><i>no results</i></p>
+				<% end %>
+			</ul>
+		</div>
 	</div>
 
-<p class="section-title">episodes:</p>
-	<div class="section-episodes">
-		<ul>
-			<% @episodes.each do |episode| %>
-				<% if episode.title.present? %>
-					<%= link_to show_episode_path(episode.show, episode) do %>
-						<li class="fav-show-card">
-							<%= image_tag episode.avatar.url(:medium) %>
-							<p class="episode-title"><%= episode.title %></p>
-						</li>
-					<% end %>
-			  <% end %>
-			<% end %>
-		</ul>
+	<div>
+		<p class="section-title" style="margin-bottom:0px;">episodes:</p>
+		<div class="section-episodes">
+			<ul>
+				<% if !@episodes.blank? %>
+					<% @episodes.each do |episode| %>
+						<%= link_to show_episode_path(episode.show, episode) do %>
+							<li class="fav-show-card">
+								<%= image_tag episode.avatar.url(:medium) %>
+								<p class="episode-title"><%= episode.title %></p>
+							</li>
+						<% end %>
+				  <% end %>
+				<% else %>
+					<p class="no-results">no results</p>
+				<% end %>
+			</ul>
+		</div>
 	</div>
 
-<p class="section-title">users:</p>
+	<div>
+		<p class="section-title" style="margin-bottom:0px;">users:</p>
 		<ul>
-			<% @users.each do |user| %>
-				<% if user.username.present? %>
+			<% if !@users.blank? %>
+				<% @users.each do |user| %>
 					<%= link_to user_path(user) do %>
 						<li class="user-avatar" style="float:left">
 							<%= image_tag user.avatar.url(:thumb) %><br>
 							<p class="avatar-name"><%= user.username%></p>
 						</li>
 					<% end %>
-	  		<% end %>		
+	  		<% end %>
+	  	<% else %>
+				<p class="no-results">no results</p>		
 			<% end %>
 		</ul>
+	</div>
 <% end %>
 

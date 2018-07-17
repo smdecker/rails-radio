@@ -204,6 +204,11 @@ li {
 	background-color: transparent;
 }
 
+.no-results {
+	margin: 0px 0px 40px 0px;
+	font-style: italic;
+}
+
 i.material-icons {
 	font-size: 18px;
 }
