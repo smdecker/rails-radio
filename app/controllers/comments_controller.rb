@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     if @comment && @comment.save
     	redirect_to request.referrer
     else
-    	redirect_to request.referrer, flash: {notice: "Cannot submit blank comment"}
+    	redirect_to request.referrer
     end
 	end
 

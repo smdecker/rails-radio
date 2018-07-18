@@ -43,6 +43,14 @@ nav a {
   color: #000;
 }
 
+.alert {
+	color: red;
+}
+
+.notice {
+	color: blue;
+}
+
 .username-header a {
 	color: #000;
 	margin-right: 10px;
