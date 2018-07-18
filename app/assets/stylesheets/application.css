@@ -250,7 +250,6 @@ i#delete.material-icons {
 	position: relative;
 	margin: 0 auto;
 	max-width: 940px;
-	border-bottom: 1px solid #ccc;
 	float:left;
 	margin-top: 0.5em;
 }
@@ -302,15 +301,16 @@ div.section-recommends > ul > a:nth-child(3n) > li {
 	max-width: 940px;
 	float:left;
 	margin-top: 1em;
-	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #ccc;
 	clear: both;
 }
 
 .thumb-show-card {
+	max-width: 172px;
   float: left;
   position: relative;
   padding-left: 0;
-  margin: 0 2% 4% 0;
+  margin: 0 2% 0 0;
 }
 
 div.section-recent > ul > a:nth-child(5n) > li {
@@ -322,9 +322,10 @@ div.section-recent > ul > a:nth-child(5n) > li {
 	position: relative;
 	margin: 0 auto;
 	width: 940px;
-	margin-top: 1em;
+	margin-top: 3em;
 	float:left;
 	clear: both;
+	border-top: 1px solid #ccc;
 }
 
 div.section-popular > ul > a:nth-child(5n) > li {
@@ -398,6 +399,14 @@ i.material-icons {
   margin-bottom: 10px;
 }
 
+.show-location {
+	float:right;
+	text-transform: uppercase;
+	font-size: 9pt;
+	font-weight: normal;
+	padding-top: 3px;
+}
+
 .show-admin {
   float: right;
 }
@@ -451,7 +460,7 @@ div.section-episodes > ul > a:nth-child(3n) > li {
 	font-size: 10.5pt;
 	font-weight: normal;
 	margin-bottom: 4em;
-	max-width: 50%;
+	width: 100%;
 }
 
 .player {

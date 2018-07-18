@@ -2,7 +2,8 @@
 	<div class="show-img"><%= image_tag @show.avatar.url(:large) %></div>
 
 	<div class="show-about">
-		<p class="section-title">Show page for <%= @show.title %></p>
+		<p class="show-location"><%= @show.location %></p>
+		<p class="section-title"><%= @show.title %></p>
 		<p class="section-description"><%= @show.description %></p>
 
 		<div id="show-about-bottom">
@@ -13,9 +14,21 @@
 					<% end %>
 				<% end %>
 
+				<% if @show.facebook.present? %>
+					<%= link_to(@show.facebook, style: 'text-decoration:none;') do %>
+						<%= image_tag 'flogo-RGB-HEX-Blk-58.svg', style: 'height:13px; width:auto; text-decoration:none;' %>
+					<% end %>
+				<% end %>
+
 				<% if @show.soundcloud.present? %>
 					<%= link_to(@show.soundcloud, style: 'text-decoration:none;') do %>
-						<%= image_tag 'soundcloud_logo-01.svg', style: 'height:10px; width:auto; text-decoration:none;' %>
+						<%= image_tag 'soundcloud_logo-01.svg', style: 'height:11px; width:auto; text-decoration:none;' %>
+					<% end %>
+				<% end %>
+
+				<% if @show.link.present? %>
+					<%= link_to(@show.link, style: 'text-decoration:none;') do %>
+						<%= image_tag 'icons8-link-50.png', style: 'height:13px; width:auto; text-decoration:none;' %>
 					<% end %>
 				<% end %>
 			</div>
