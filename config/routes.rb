@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 		end	
 	end
 
-	resources :genres
+	resources :genres, only: [:show]
 
 	get '/archive' => 'shows/episodes#index'
 	get '/highlights' => 'highlights#index'

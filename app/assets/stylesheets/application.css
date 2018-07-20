@@ -687,4 +687,18 @@ textarea#comment_content:focus {
 
 .genre-section {
 	margin-bottom: 3em;
+	display: inline-block;
+}
+
+.section-playing-genres {
+	position: relative;
+	margin: 0 auto;
+	width: 940px;
+	float:left;
+	margin-top: 1em;
+	clear: both;
+}
+
+div.section-playing-genres > ul > a:nth-child(3) > li {
+	margin: 0 0 4% 0;
 }

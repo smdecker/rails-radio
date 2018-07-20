@@ -1,7 +1,23 @@
-<h1>genre episodes go here</h1>
+<div>
+	<p class="page-title">Episodes playing</p>
+	<div class="genre-tag-wrap" style="display: inline-block; width:fit-content; background-color:#fff">
 
-  <% @genre.episodes.each do |episode| %>
-	  <%= link_to show_episode_path(episode.show, episode) do %>
-	    <p><%=episode.title %></p>
-	  <% end %>
-  <%end%>
+		<p class="genre-tag" style="font-size: 10pt; font-weight: normal; margin: 0;">
+			<%= @genre.name %>
+		</p>
+	</div>
+</div>
+
+<div class="section-playing-genres" style="border-bottom:none; margin-top: 0.5em">
+	<ul>
+	  <% @genre.episodes.order(created_at: :desc).each do |episode| %>
+		  <%= link_to show_episode_path(episode.show, episode) do %>
+		    <li class="fav-show-card">
+					<%= image_tag episode.avatar.url(:medium) %>
+					<p class="episode-title"><%= episode.title %></p>
+				</li>
+		  <% end %>
+	  <%end%>
+  </ul>
+</div>
+

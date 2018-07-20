@@ -52,7 +52,7 @@
 
 <p class="episode-description"><%= @episode.description %> </p>
 
-<div class="genre-section" style="display:inline-block">
+<div class="genre-section">
   <ul>
     <% @episode.genres.each do |genre| %>
       <%= link_to genre_path(genre), class: "genre-tag-wrap" do %>
