@@ -1,0 +1,7 @@
+<h1>genre episodes go here</h1>
+
+  <% @genre.episodes.each do |episode| %>
+	  <%= link_to show_episode_path(episode.show, episode) do %>
+	    <p><%=episode.title %></p>
+	  <% end %>
+  <%end%>

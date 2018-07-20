@@ -22,8 +22,14 @@
 	</div>
 
 	<div class="field">
-  <%= f.label "Select genre", class: "username-password" %>
-  <%= f.collection_check_boxes :genre_ids, Genre.all, :id, :name %>
+	  <%= f.label "Select genre", class: "username-password" %>
+	  <div class="select-box">
+			<%= f.collection_check_boxes(:genre_ids, Genre.all.order('name ASC'), :id, :name) do |genre| %>
+		    <%= genre.label class: "label-checkbox" do%>
+		     <%= genre.check_box + genre.text %>
+		    <%end%>
+		  <% end %>
+	  </div>
   </div>
 
   <div class="field">
