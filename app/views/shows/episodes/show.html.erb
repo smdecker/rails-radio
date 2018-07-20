@@ -1,13 +1,14 @@
 <p class="episode-date"><%= @episode.air_date.strftime("%b %d, %Y")%></p>
 
 <p class="episode-title-page"><b><%= @episode.title %></b></p> 
+
 <div class="episode-admin-action">
   <% if current_user.try(:admin?) %>
     <div class="admin-action">
-      <span><i id="edit" class="material-icons">mode_edit</i></span><%= link_to "Edit Episode", edit_show_episode_path(@show, @episode) %>
+      <span><i id="delete" class="material-icons">remove_circle_outline</i></span><%= link_to "Delete Episode", show_episode_path(@show, @episode), method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
     <div class="admin-action">
-      <span><i id="delete" class="material-icons">remove_circle_outline</i></span><%= link_to "Delete Episode", show_episode_path(@show, @episode), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <span><i id="edit" class="material-icons">mode_edit</i></span><%= link_to "Edit Episode", edit_show_episode_path(@show, @episode) %>
     </div>
   <% end %>
 </div>
@@ -51,12 +52,16 @@
 
 <p class="episode-description"><%= @episode.description %> </p>
 
-<div>
-  <% @episode.genres.each do |genre| %>
-  <%= link_to genre_path(genre) do %>
-    <p><%=genre.name%></p>
-  <% end %>
-  <%end%>
+<div class="genre-section" style="display:inline-block">
+  <ul>
+    <% @episode.genres.each do |genre| %>
+      <%= link_to genre_path(genre), class: "genre-tag-wrap" do %>
+        <li class="genre-tag">
+          <%=genre.name%>
+        </li>
+      <% end %>
+    <%end%>
+  </ul>
 </div>
 
 <p class="episode-functions">favorited by</p>

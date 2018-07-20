@@ -458,8 +458,8 @@ div.section-episodes > ul > a:nth-child(3n) > li {
 
 .episode-description {
 	font-size: 10.5pt;
+	margin-bottom: 1em;
 	font-weight: normal;
-	margin-bottom: 4em;
 	width: 100%;
 }
 
@@ -664,4 +664,27 @@ textarea#comment_content:focus {
   background-color: #fff; 
   padding: 2px 15px 2px 5px;
   border: 1px solid #999;
+}
+
+.genre-tag {
+  font-size: 8pt;
+  font-weight: normal;
+}
+
+.genre-tag-wrap {
+  font-size: 8pt;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: normal;
+  border: 1px solid #000;
+  padding: 2px;
+  margin-right: 5px;
+}
+
+.genre-tag-wrap:hover {
+	background-color: #fff;
+}
+
+.genre-section {
+	margin-bottom: 3em;
 }
