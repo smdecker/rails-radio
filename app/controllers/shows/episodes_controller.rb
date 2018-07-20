@@ -75,6 +75,6 @@ class Shows::EpisodesController < ApplicationController
 	end
 
 	def episode_params
-		params.require(:episode).permit(:title, :description, :air_date, :slug, :avatar, genres_attributes: [:id, :name], genre_ids:[] )
+		params.require(:episode).permit(:title, :description, :air_date, :slug, :avatar, genres_attributes: [:id, :name, :slug], genre_ids:[] )
 	end
 end
