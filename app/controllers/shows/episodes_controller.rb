@@ -1,5 +1,5 @@
 class Shows::EpisodesController < ApplicationController
-	before_action :set_show, except: [:index, :favorite]
+	before_action :set_show, except: [:index, :favorite, :explore]
 	before_action :set_episode, only: [:show, :edit, :update, :destroy]
 
 	def index
@@ -18,6 +18,7 @@ class Shows::EpisodesController < ApplicationController
 		@episode = @show.episodes.new(episode_params)
 
 		@episode.user = current_user
+
 		if @episode.save
 			redirect_to show_episode_path(@show, @episode)
 		else 
@@ -29,6 +30,7 @@ class Shows::EpisodesController < ApplicationController
 	end
 
 	def update
+
 		if @episode.update(episode_params)
 			redirect_to show_episode_path(@show, @episode), flash: {notice: "'#{@episode.title}' updated"}
 		else
@@ -57,6 +59,11 @@ class Shows::EpisodesController < ApplicationController
     end
   end
 
+	def explore
+	  @explore = Episode.search(params[:q])
+	  @explore_results = @explore.result(distinct: true)
+	end
+
 	private
 
 	def set_episode
@@ -68,6 +75,6 @@ class Shows::EpisodesController < ApplicationController
 	end
 
 	def episode_params
-		params.require(:episode).permit(:title, :description, :air_date, :slug, :avatar)
+		params.require(:episode).permit(:title, :description, :air_date, :slug, :avatar, genres_attributes: [:id, :name], genre_ids:[] )
 	end
 end

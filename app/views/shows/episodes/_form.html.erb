@@ -1,4 +1,5 @@
 <%= form_for [@show, @episode] do |f| %>
+<%= hidden_field_tag "episode[genre_ids][]", nil %>
 
 	<div class="field">
 		<%= f.label :title, class: "username-password" %>
@@ -19,6 +20,18 @@
 		<%= f.label "episode image", class: "username-password" %>
 		<%= f.file_field :avatar, class: "field-input" %>
 	</div>
+
+	<div class="field">
+  <%= f.label "Select genre", class: "username-password" %>
+  <%= f.collection_check_boxes :genre_ids, Genre.all, :id, :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label "or create new genre", class: "username-password" %>
+    <%= f.fields_for :genres, @episode.genres.build do |genre_fields| %>
+    	<%= genre_fields.text_field :name %>
+    <% end %>
+  </div>
 	
 	<div class="actions" style="margin-top:10px;">
 		<%= f.submit %>

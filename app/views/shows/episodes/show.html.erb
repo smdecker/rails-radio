@@ -51,6 +51,11 @@
 
 <p class="episode-description"><%= @episode.description %> </p>
 
+<div>
+  <% @episode.genres.each do |genre| %>
+    <p><%=genre.name%></p>
+  <%end%>
+</div>
 
 <p class="episode-functions">favorited by</p>
   <ul>

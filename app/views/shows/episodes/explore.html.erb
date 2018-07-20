@@ -1,0 +1,13 @@
+<%= search_form_for @explore, url: explore_url do |f| %>
+  <% Genre.all.uniq.each do |genre| %>
+    <%= check_box_tag('q[genres_name_cont_any][]', genre.name) %>
+    <%= genre.name %>
+  <% end %>
+  <%= f.submit "Search", name: "submit_check" %>
+<% end %>
+
+<% if params[:submit_check] %>
+	<% @explore_results.each do |episode| %>
+		<%= episode.title %>
+	<% end %>
+<% end %>

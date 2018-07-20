@@ -7,6 +7,11 @@ class Episode < ApplicationRecord
 	has_many :favorite_episodes
 	has_many :favorited_by, through: :favorite_episodes, source: :user
 
+	has_many :episode_genres
+	has_many :genres, :through => :episode_genres
+
+	accepts_nested_attributes_for :genres
+
 	has_attached_file :avatar, styles: { xl: "940x600#", medium: "300x225#", thumb: "172x120#" }, default_url: "/assets/:style/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
@@ -31,6 +36,13 @@ class Episode < ApplicationRecord
 	def self.sorted_by_most_popular
 		Episode.all.sort_by {|e| e.most_popular}.reverse
 	end
+
+  def genres_attributes=(genre_attributes)
+    genre_attributes.values.each do |genre_attribute|
+			genre = Genre.find_or_create_by(genre_attribute)
+				self.genres << genre
+    end
+  end
 end
 
 # Most popular by week

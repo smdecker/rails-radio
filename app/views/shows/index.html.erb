@@ -8,7 +8,7 @@
 	<% end %>
 
 	<ul>
-		<% @shows.each do |show| %>
+		<% @shows.order('title ASC').each do |show| %>
 			<%= link_to show_path(show) do %>
 				<li class="fav-show-card">
 					<%= image_tag show.avatar.url(:medium) %>
