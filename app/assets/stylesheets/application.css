@@ -702,3 +702,10 @@ textarea#comment_content:focus {
 div.section-playing-genres > ul > a:nth-child(3) > li {
 	margin: 0 0 4% 0;
 }
+
+.genre-explore-label {
+	display: block;
+  font-size: 10.5pt;
+  text-transform: uppercase;
+  font-weight: bold;
+}

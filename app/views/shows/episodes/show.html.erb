@@ -30,7 +30,7 @@
   <% if user_signed_in? %>
     <% if current_user.favorites.include?(@episode) %>
       <%= link_to favorite_show_episode_path(@episode, type: "unfavorite"), method: :put do %>
-        <div class="favorite-button">
+        <div class="favorite-button" style="background-color:#6f6f6f">
           <p>favorited</p>
         </div>
       <% end %>
