@@ -4,9 +4,9 @@
     display: table;
     margin-right: 15px;">
 	<%= search_form_for @explore, url: explore_url do |f| %>
-	  <% Genre.all.uniq.each do |genre| %>
+	  <% Genre.all.order('name ASC').each do |genre| %>
 	  	<span class="genre-explore-label">
-	    	<%= check_box_tag('q[genres_name_cont_any][]', genre.name) %>
+	    	<%= check_box_tag 'q[genres_name_cont_any][]', genre.name %>
 	    	<%= genre.name %>
 	    </span>
 	  <% end %>

@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
 	def index
-		@episodes = Episode.all
+		@episodes = Episode.recent_episodes
 		@admin = User.where(admin: true)
 	end
 end

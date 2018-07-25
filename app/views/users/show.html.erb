@@ -4,9 +4,11 @@
 	<h2 class="user-profile-name">
 		<%= @user.username %>
 	</h2>
+  
 	<% if user_signed_in? && current_user.id == @user.id %>
 		<p class="edit-user">
-			<span><i id="edit" class="material-icons">mode_edit</i></span><%= link_to "edit profile", edit_user_registration_path %>
+			<span><i id="edit" class="material-icons">mode_edit</i></span>
+      <%= link_to "edit profile", edit_user_registration_path %>
 		</p>
 	<% end %>
 </div>
@@ -39,6 +41,7 @@
               <%= comment.created_at.strftime("%b %d, %Y") %>
             </span>
           </div><br>
+
           <div class="comment-content">
             <%= comment.content %>
           </div>
@@ -46,12 +49,16 @@
         
         <% if user_signed_in? && current_user.id == comment.user_id %>
           <div class="comment-action">
-            <span><i id="delete" class="material-icons">remove_circle_outline</i></span><%= link_to "Delete comment", show_episode_comment_path(comment.episode.show, comment.episode, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+            <span><i id="delete" class="material-icons">remove_circle_outline</i></span>
+            <%= link_to "Delete comment", show_episode_comment_path(comment.episode.show, comment.episode, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
           </div>
+
           <div class="comment-action">
-            <span><i id="edit" class="material-icons">mode_edit</i></span><%= link_to "Edit comment", edit_show_episode_comment_path(comment.episode.show, comment.episode, comment) %>
+            <span><i id="edit" class="material-icons">mode_edit</i></span>
+            <%= link_to "Edit comment", edit_show_episode_comment_path(comment.episode.show, comment.episode, comment) %>
           </div>
         <% end %>
+
       </li>
     <% end %>
   </ul>

@@ -37,6 +37,10 @@ class Episode < ApplicationRecord
 		Episode.all.sort_by {|e| e.most_popular}.reverse
 	end
 
+	def self.recent_episodes
+		Episode.order(created_at: :desc).first(15)
+	end
+
   def genres_attributes=(genre_attributes)
     genre_attributes.values.each do |genre_attribute|
 			if !genre_attribute[:name].blank?

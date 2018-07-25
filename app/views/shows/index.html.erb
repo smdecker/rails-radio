@@ -3,12 +3,13 @@
 
 	<% if current_user.try(:admin?) %>
 		<div id="add" class="admin-action">
-			<span><i id="add" class="material-icons">add_circle_outline</i></span><%= link_to "Add new Show", new_show_path %>
+			<span><i id="add" class="material-icons">add_circle_outline</i></span>
+			<%= link_to "Add new Show", new_show_path %>
 		</div>
 	<% end %>
 
 	<ul>
-		<% @shows.order('title ASC').each do |show| %>
+		<% @shows.each do |show| %>
 			<%= link_to show_path(show) do %>
 				<li class="fav-show-card">
 					<%= image_tag show.avatar.url(:medium) %>

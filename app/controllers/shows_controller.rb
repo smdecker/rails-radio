@@ -4,8 +4,8 @@ class ShowsController < ApplicationController
 	before_action :set_show, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@shows = Show.all
-				@episodes = Episode.all
+		@shows = Show.shows_alphabetic
+		@episodes = Episode.all
 		@admin = User.where(admin: true)
 	end
 

@@ -11,5 +11,9 @@ class Show < ApplicationRecord
 	 title_changed?
 	end
 
+	def self.shows_alphabetic
+		Show.order('title ASC')
+	end
+
 	validates_presence_of :title, :description, :location
 end

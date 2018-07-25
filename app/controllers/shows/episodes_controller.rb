@@ -3,7 +3,7 @@ class Shows::EpisodesController < ApplicationController
 	before_action :set_episode, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@episodes = Episode.all	
+		@episodes = Episode.recent_episodes
 	end
 
 	def show
@@ -45,12 +45,12 @@ class Shows::EpisodesController < ApplicationController
 
   def favorite
   	@episode = Episode.friendly.find(params[:id])
-    type = params[:type]
-    if type == "favorite"
+
+    if params[:type] == "favorite"
       current_user.favorites << @episode
       redirect_to request.referrer
 
-    elsif type == "unfavorite"
+    elsif params[:type] == "unfavorite"
       current_user.favorites.delete(@episode)
       redirect_to request.referrer
 
@@ -75,6 +75,6 @@ class Shows::EpisodesController < ApplicationController
 	end
 
 	def episode_params
-		params.require(:episode).permit(:title, :description, :air_date, :slug, :avatar, genre_ids:[], genres_attributes: [:name] )
+		params.require(:episode).permit(:title, :description, :air_date, :slug, :avatar, :genres_name_cont_any, genre_ids:[], genres_attributes: [:name] )
 	end
 end
