@@ -1,12 +1,4 @@
 <h2>Edit episode</h2>
-<% if @episode.errors.any? %>
-  <ul>
-    <% @episode.errors.full_messages.each do |message| %>
-      <li class="error-message">
-        - <%= message %>
-      </li>
-    <% end %>
-  </ul><br>
-<% end %>
+<%= render 'shared/error_messages', target: @episode %>
 
 <%= render 'form' %>

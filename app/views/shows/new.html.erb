@@ -1,12 +1,4 @@
 <h2>Create new show</h2>
-<% if @show.errors.any? %>
-  <ul>
-    <% @show.errors.full_messages.each do |message| %>
-      <li class="error-message">
-        - <%= message %>
-      </li>
-    <% end %>
-  </ul><br>
-<% end %>
+<%= render 'shared/error_messages', target: @show %>
 
 <%= render 'form' %>
