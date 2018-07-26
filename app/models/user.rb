@@ -26,8 +26,20 @@ class User < ApplicationRecord
     @login || self.username || self.email
   end
 
-  def admin_favorites
+  def admin_favorites_recent
     favorites.order(created_at: :desc).first(6)
+  end
+
+  def admin_favorites_all
+    favorites.order(created_at: :desc)
+  end
+
+  def comments_desc
+    comments.order(created_at: :desc)
+  end
+
+  def favorites_desc
+    favorites.order(created_at: :desc)
   end
 
   def self.find_for_database_authentication(warden_conditions)

@@ -1,8 +1,8 @@
-<div class="section-recent" style="border-bottom:none; margin-top: 0.5em">
+<div class="section-archive-highlights" >
 	<p class="page-title">highlights</p>
 	<ul>
 		<% @admin.each do |admin| %>
-			<% admin.favorites.order(created_at: :desc).each do |episode| %>
+			<% admin.admin_favorites_all.each do |episode| %>
 				<%= link_to show_episode_path(episode.show, episode) do %>
 					<li class="thumb-show-card">
 						<%= image_tag episode.avatar.url(:thumb) %>

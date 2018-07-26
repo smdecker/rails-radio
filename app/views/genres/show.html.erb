@@ -10,7 +10,7 @@
 
 <div class="section-playing-genres" style="border-bottom:none; margin-top: 0.5em">
 	<ul>
-	  <% @genre.episodes.order(created_at: :desc).each do |episode| %>
+	  <% @genre.episodes_desc.each do |episode| %>
 		  <%= link_to show_episode_path(episode.show, episode) do %>
 		    <li class="fav-show-card">
 					<%= image_tag episode.avatar.url(:medium) %>

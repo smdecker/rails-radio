@@ -41,6 +41,14 @@ class Episode < ApplicationRecord
 		Episode.order(created_at: :desc).first(15)
 	end
 
+	def comments_desc
+		comments.order(created_at: :desc)
+	end
+
+	def self.explore_order
+		Episode.order(created_at: :desc)
+	end
+
   def genres_attributes=(genre_attributes)
     genre_attributes.values.each do |genre_attribute|
 			if !genre_attribute[:name].blank?

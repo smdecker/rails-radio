@@ -48,7 +48,7 @@ class ShowsController < ApplicationController
 	end
 
 	def authenticate_admin
-		redirect_to root_path, flash: {notice: "admin only"} unless current_user && current_user.admin?
+		redirect_to root_path, flash: {alert: "ADMIN ONLY"} unless current_user && current_user.admin?
 	end
 
 	def show_params

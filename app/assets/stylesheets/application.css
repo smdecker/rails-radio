@@ -332,6 +332,21 @@ div.section-popular > ul > a:nth-child(5n) > li {
 	margin: 0 0 4% 0;
 }
 
+/*///////// highlights and archive /////////*/
+.section-archive-highlights {
+	position: relative;
+	margin: 0 auto;
+	max-width: 940px;
+	float:left;
+	border-top:none; 
+	margin-top: 0.5em;
+	clear: both;
+}
+
+div.section-archive-highlights > ul > a:nth-child(5n) > li {
+	margin: 0 0 4% 0;
+}
+
 /*//////////// admin panel ///////////////*/
 #add.admin-action {
 	float: right;
@@ -708,4 +723,19 @@ div.section-playing-genres > ul > a:nth-child(3) > li {
   font-size: 10.5pt;
   text-transform: uppercase;
   margin-top: 3px;
+}
+
+.explore-search {
+	position: relative;
+  float: left;
+  width: 30%;
+  display: table;
+  margin-right: 15px;
+}
+
+.explore-results {
+	float: right;
+  width: 67%;
+  height: 300px;
+  position: relative;
 }

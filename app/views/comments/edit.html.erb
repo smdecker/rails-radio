@@ -1,14 +1,6 @@
 <p class="edit-comment">edit comment:</p>
 
-<% if @comment.errors.any? %>
-  <ul>
-    <% @comment.errors.full_messages.each do |message| %>
-      <li class="error-message">
-        - <%= message %>
-      </li>
-    <% end %>
-  </ul><br>
-<% end %>
+<%= render 'shared/error_messages', target: @comment %>
 
 <%= form_for ([@show, @episode, @comment]) do |f| %>
   <%= f.hidden_field :episode_id, value: @episode.id %>

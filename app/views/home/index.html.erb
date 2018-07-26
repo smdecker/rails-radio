@@ -2,7 +2,7 @@
 	<p class="section-title">Rails Radio recommends</p>
 	<ul>
 		<% @admin.each do |admin| %>
-			<% admin.admin_favorites.each do |fav| %>
+			<% admin.admin_favorites_recent.each do |fav| %>
 				<%= link_to show_episode_path(fav.show, fav) do %>
 					<li class="fav-show-card">
 						<%= image_tag fav.avatar.url(:medium) %>

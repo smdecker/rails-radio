@@ -1,4 +1,6 @@
 class Shows::EpisodesController < ApplicationController
+	before_action :authenticate_user!, except: [:index, :show, :explore]
+	before_action :authenticate_admin, except: [:index, :show, :favorite, :explore]
 	before_action :set_show, except: [:index, :favorite, :explore]
 	before_action :set_episode, only: [:show, :edit, :update, :destroy]
 
@@ -30,7 +32,6 @@ class Shows::EpisodesController < ApplicationController
 	end
 
 	def update
-
 		if @episode.update(episode_params)
 			redirect_to show_episode_path(@show, @episode), flash: {notice: "'#{@episode.title}' updated"}
 		else
@@ -60,11 +61,17 @@ class Shows::EpisodesController < ApplicationController
   end
 
 	def explore
+		@genres = Genre.genre_order
+
 	  @explore = Episode.search(params[:q])
 	  @explore_results = @explore.result(distinct: true)
 	end
 
 	private
+
+	def authenticate_admin
+		redirect_to root_path, flash: {alert: "ADMIN ONLY"} unless current_user && current_user.admin?
+	end
 
 	def set_episode
 		@episode = Episode.friendly.find(params[:id])

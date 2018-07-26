@@ -16,7 +16,7 @@
 <div class="section-popular" style="margin-bottom:2em">
 	<p class="section-title">favorite episodes</p>
 	<ul>
-		<% @user.favorites.each do |episode| %>
+		<% @user.favorites_desc.each do |episode| %>
 			<%= link_to show_episode_path(episode.show, episode) do %>
 				<li class="thumb-show-card">
 					<%= image_tag episode.avatar.url(:thumb) %>
@@ -30,7 +30,7 @@
 <div>
   <p class="section-title" style="clear:both">comments</p>
   <ul style="clear:both">
-    <% @user.comments.order(created_at: :desc).each do |comment| %>
+    <% @user.comments_desc.each do |comment| %>
       <li class="user-comments">
         <div class="user-comment-wrap">
           <div class="comment-user-row">
@@ -58,7 +58,6 @@
             <%= link_to "Edit comment", edit_show_episode_comment_path(comment.episode.show, comment.episode, comment) %>
           </div>
         <% end %>
-
       </li>
     <% end %>
   </ul>

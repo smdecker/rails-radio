@@ -13,8 +13,9 @@
   <% end %>
 </div>
 
-
-<%= image_tag @episode.avatar.url(:xl) %> <br>
+<div>
+  <%= image_tag @episode.avatar.url(:xl) %> <br>
+</div>
 
 <div>
   <div class="player">
@@ -93,7 +94,7 @@
 
 <br><br>
 <ul>
-  <% @episode.comments.order(created_at: :desc).each do |comment| %>
+  <% @episode.comments_desc.each do |comment| %>
     <li class="comment-section">
       <div style="display:inline">
       <%= link_to user_path(comment.user) do %>
