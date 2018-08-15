@@ -1,24 +1,16 @@
-# README
+# Rails Radio
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This rails app is an online radio platform. Essentially, users can browse the site for shows and its episodes, comment on and ‘favorite’ those episodes and explore associated genres. The actual creation of shows/episodes is restricted to admin only.
 
-Things you may want to cover:
+## Usage
+using Ruby 2.4.1 and Rails 5.2.0
 
-* Ruby version
+* ```fork https://github.com/smdecker/rails-radio and clone```
 
-* System dependencies
+* ```cd to rails-radio```
 
-* Configuration
+* ```bundle install```
 
-* Database creation
+* ```rake db:migrate```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* ```rails s``` to use on localhost
