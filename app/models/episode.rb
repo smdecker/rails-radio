@@ -34,7 +34,7 @@ class Episode < ApplicationRecord
 	end
 
 	def self.sorted_by_most_popular
-		Episode.all.sort_by {|e| e.most_popular}.reverse
+		Episode.all.sort_by {|e| e.most_popular}.reverse.first(10)
 	end
 
 	def self.recent_episodes

@@ -729,6 +729,7 @@ div.section-playing-genres > ul > a:nth-child(3) > li {
 	position: relative;
   float: left;
   width: 30%;
+  height: 83vh;
   display: table;
   margin-right: 15px;
 }

@@ -2,7 +2,7 @@ class Shows::EpisodesController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show, :explore]
 	before_action :authenticate_admin, except: [:index, :show, :favorite, :explore]
 	before_action :set_show, except: [:index, :favorite, :explore]
-	before_action :set_episode, only: [:show, :edit, :update, :destroy]
+	before_action :set_episode, only: [:show, :edit, :update, :destroy, :favorite]
 
 	def index
 		@episodes = Episode.recent_episodes
@@ -45,17 +45,12 @@ class Shows::EpisodesController < ApplicationController
 	end
 
   def favorite
-  	@episode = Episode.friendly.find(params[:id])
-
     if params[:type] == "favorite"
       current_user.favorites << @episode
       redirect_to request.referrer
 
     elsif params[:type] == "unfavorite"
       current_user.favorites.delete(@episode)
-      redirect_to request.referrer
-
-    else
       redirect_to request.referrer
     end
   end
